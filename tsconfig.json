@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "rootDir": "./lib",
+    "baseUrl": "./lib",
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "declaration": true,
+    "module": "commonjs",
+    "target": "es5",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "jsx": "react",
+    "outDir": "./dist",
+    "paths": {
+      "*": ["*"]
+    }
+  },
+  "include": [
+    "./lib/*"
+  ]
+}
