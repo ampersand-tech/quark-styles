@@ -185,13 +185,7 @@ QAC(/^([wh])(-[nx])?-([\w\.%]+)$/, function(match, style) {
   // Lowercase first letter
   styleKey = styleKey.charAt(0).toLowerCase() + styleKey.slice(1);
 
-  let size: string = evalPixels(match[3]);
-
-  if (size === 'IPHONEXTOPNOTCH') {
-    size = 'env(safe-area-inset-top)';
-  }
-
-  style[styleKey] = size;
+  style[styleKey] = evalPixels(match[3]);
 });
 
 /**
