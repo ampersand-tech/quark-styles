@@ -16,13 +16,15 @@ function defaultSuffix(size, suffix) {
     }
     return size;
 }
+// These strings can be used in place of actual numbers for lengths that are dynamically calculated,
+// such as the iPhoneX safe areas
 var LENGTH_MAP = {};
 function calcSafeAreaLengthMAP() {
     LENGTH_MAP = {
-        IPHONE_X_SAFE_AREA_TOP: (safeArea_1.safeAreaSize.top || 0) + 'px',
-        IPHONE_X_SAFE_AREA_BOTTOM: (safeArea_1.safeAreaSize.bottom || 0) + 'px',
-        IPHONE_X_SAFE_AREA_LEFT: (safeArea_1.safeAreaSize.left || 0) + 'px',
-        IPHONE_X_SAFE_AREA_RIGHT: (safeArea_1.safeAreaSize.right || 0) + 'px',
+        SAFE_AREA_TOP: (safeArea_1.safeAreaSize.top || 0) + 'px',
+        SAFE_AREA_BOTTOM: (safeArea_1.safeAreaSize.bottom || 0) + 'px',
+        SAFE_AREA_LEFT: (safeArea_1.safeAreaSize.left || 0) + 'px',
+        SAFE_AREA_RIGHT: (safeArea_1.safeAreaSize.right || 0) + 'px',
     };
 }
 calcSafeAreaLengthMAP();
@@ -101,6 +103,17 @@ function applyCornerDirectionalStyles(style, stylePrefix, styleSuffix, key1, key
         style[styleName] = size;
     }
 }
+/*
+ 
+ ██╗      █████╗ ██╗   ██╗ ██████╗ ██╗   ██╗████████╗
+ ██║     ██╔══██╗╚██╗ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝
+ ██║     ███████║ ╚████╔╝ ██║   ██║██║   ██║   ██║
+ ██║     ██╔══██║  ╚██╔╝  ██║   ██║██║   ██║   ██║
+ ███████╗██║  ██║   ██║   ╚██████╔╝╚██████╔╝   ██║
+ ╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝  ╚═════╝    ╚═╝
+                                                     
+ 
+*/
 /**
  * @qs Margins
  * @param {POS_LOOKUP} [direction] Set direction, leave blank for all directions
@@ -129,6 +142,211 @@ QAC(/^p(?:-([lrtbxy]))?-(.+)$/, function (match, style) {
     var size = evalPixels(match[2]);
     applyDirectionalStyles(style, 'padding', '', match[1], size);
 });
+/**
+ * @qs Width
+ * @param {MIN_MAX} [restriction]
+ * @param {number} size
+ * @example w- w-n w-x
+ * @implement w-[restriction]-[size]
+ */
+/**
+ * @qs Height
+ * @param {MIN_MAX} [restriction]
+ * @param {number} size
+ * @example h- h-n h-x
+ * @implement h-[restriction]-[size]
+ */
+QAC(/^([wh])(-[nx])?-([\w\.%]+)$/, function (match, style) {
+    var styleKey = '';
+    if (match[2] === '-n') {
+        styleKey = 'min';
+    }
+    else if (match[2] === '-x') {
+        styleKey = 'max';
+    }
+    if (match[1] === 'w') { // width
+        styleKey += 'Width';
+    }
+    else { // height
+        styleKey += 'Height';
+    }
+    // Lowercase first letter
+    styleKey = styleKey.charAt(0).toLowerCase() + styleKey.slice(1);
+    style[styleKey] = evalPixels(match[3]);
+});
+/**
+ * @enum
+ */
+var TEXTALIGN_LOOKUP = {
+    l: 'left',
+    r: 'right',
+    c: 'center',
+    j: 'justify',
+};
+/**
+ * @enum
+ */
+var VERTICALALIGN_LOOKUP = {
+    b: 'baseline',
+    s: 'sub',
+    p: 'super',
+    m: 'middle',
+    t: 'top',
+};
+/**
+ * @qs Vertical-Align
+ * @param {VERTICALALIGN_LOOKUP} value
+ * @example va-b, va-s, va-p, va-m, va-t
+ * @implement va-[value]
+ */
+QAC(/^va-([bspmt])$/, function (match, style) {
+    style.verticalAlign = VERTICALALIGN_LOOKUP[match[1]];
+});
+/**
+ * @enum
+ */
+var OVERFLOW_LOOKUP = {
+    v: 'visible',
+    h: 'hidden',
+    s: 'scroll',
+    a: 'auto',
+};
+/**
+ * @qs Overflow
+ * @param {string} [direction] x or y
+ * @param {OVERFLOW_LOOKUP} type
+ * @param {string} [nt] add -nt to set no touch in overflow scroll
+ * @example o-v, o-h, o-s, o-a, o-x-v, o-x-h, o-x-s, o-x-a, o-y-v, o-y-h, o-y-s, o-y-a, o-s-nt
+ * @implement o-[direction]-[type]-[nt]
+ */
+// o-s-nt : no touch in overflow scroll
+QAC(/^o(-[xy])?-([vhsa])(-nt)?$/, function (match, style) {
+    var styleKey = 'overflow';
+    if (match[1] === '-x') {
+        styleKey += 'X';
+    }
+    else if (match[1] === '-y') {
+        styleKey += 'Y';
+    }
+    style[styleKey] = OVERFLOW_LOOKUP[match[2]];
+    if ((match[2] === 's' || match[2] === 'a') && match[3] !== '-nt') {
+        style.WebkitOverflowScrolling = 'touch';
+    }
+});
+/**
+ * @enum
+ */
+var POSTION_LOOKUP = {
+    a: 'absolute',
+    r: 'relative',
+    s: 'static',
+    f: 'fixed',
+};
+/**
+ * @qs position
+ * @param {POSITION_LOOKUP} position
+ * @example pos-a pos-r pos-s pos-f
+ * @implement pos-[position]
+ */
+QAC(/^pos-([arsf])$/, function (match, style) {
+    var styleKey = 'position';
+    style[styleKey] = POSTION_LOOKUP[match[1]];
+});
+/**
+ * @enum
+ */
+var DISPLAY_LOOKUP = {
+    b: 'block',
+    n: 'none',
+    i: 'inline',
+    ib: 'inline-block',
+    f: 'flex',
+    x: 'box',
+};
+/**
+ * @qs Display
+ * @param {DISPLAY_LOOKUP} display
+ * @example d-b, d-n, d-i, d-ib, d-f
+ * @implement d-[display]
+ */
+QAC(/^d-([bnif]b?)$/, function (match, style) {
+    var styleKey = 'display';
+    style[styleKey] = DISPLAY_LOOKUP[match[1]];
+});
+/**
+ * @qs Z-Index
+ * @desc  DO NOT USE THIS! If you think you need to, you're wrong.
+ * @param {number} value
+ * @example z-
+ * @implement z-[value]
+ */
+// z
+QAC(/^z-(.+)$/, function (match, style) {
+    var styleKey = 'zIndex';
+    style[styleKey] = match[1];
+});
+/**
+ * @qs Bottom
+ * @param {number} value in pixels, or specifiy units.
+ * @example bot-0
+ * @implement bot-[value]
+ * @implement bottom-[value]
+ */
+QAC(/^bottom-(.+)$/, function (match, style) {
+    var size = evalPixels(match[1]);
+    style.bottom = size;
+});
+/**
+ * @qs Left
+ * @param {number} value in pixels, or specifiy units.
+ * @example left-
+ * @implement left-[value]
+ */
+QAC(/^left-(.+)$/, function (match, style) {
+    var size = evalPixels(match[1]);
+    style.left = size;
+});
+/**
+ * @qs Right
+ * @param {number} value in pixels, or specifiy units.
+ * @example right-
+ * @implement right-[value]
+ */
+QAC(/^right-(.+)$/, function (match, style) {
+    var size = evalPixels(match[1]);
+    style.right = size;
+});
+/**
+ * @qs Top
+ * @param {number} value in pixels, or specifiy units.
+ * @example top-
+ * @implement top-[value]
+ */
+QAC(/^top-(.+)$/, function (match, style) {
+    var size = evalPixels(match[1]);
+    style.top = size;
+});
+/**
+ * @qs object-fit
+ * @param {fill | contain | cover | none | scaleDown}
+ * @example of-contain, of-scaleDown
+ * @implement of-[value]
+ */
+// of- [fill, contain, cover, none, scaleDown]
+QAC(/^of-(.+)$/, function (match, style) {
+    style.objectFit = match[0];
+});
+/*
+ 
+ ██████╗  ██████╗ ██████╗ ██████╗ ███████╗██████╗
+ ██╔══██╗██╔═══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗
+ ██████╔╝██║   ██║██████╔╝██║  ██║█████╗  ██████╔╝
+ ██╔══██╗██║   ██║██╔══██╗██║  ██║██╔══╝  ██╔══██╗
+ ██████╔╝╚██████╔╝██║  ██║██████╔╝███████╗██║  ██║
+ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═╝
+                                                  
+ 
+*/
 /**
  * @qs Border
  * @param {POS_LOOKUP} [direction]
@@ -165,6 +383,17 @@ QAC(/^br(?:-([tlbr]))?(?:([rl]))?-([\w\.%]+)$/, function (match, style) {
     var size = evalPixels(match[3]);
     applyCornerDirectionalStyles(style, 'border', 'Radius', match[1], match[2], size);
 });
+/*
+ 
+ ███████╗██╗  ██╗ █████╗ ██████╗  ██████╗ ██╗    ██╗
+ ██╔════╝██║  ██║██╔══██╗██╔══██╗██╔═══██╗██║    ██║
+ ███████╗███████║███████║██║  ██║██║   ██║██║ █╗ ██║
+ ╚════██║██╔══██║██╔══██║██║  ██║██║   ██║██║███╗██║
+ ███████║██║  ██║██║  ██║██████╔╝╚██████╔╝╚███╔███╔╝
+ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝  ╚═════╝  ╚══╝╚══╝
+                                                    
+ 
+*/
 /**
  * @qs Box-Shadow h v blur blurRadius color style
  * @param {number} offsetY
@@ -222,42 +451,17 @@ QAC(/^dropshdw-(-?[^-\n\r]+)-(-?[^-\n\r]+)-(-?[^-\n\r]+)-(.+)$/, function (match
         colorFromName(match[4], errors).rgb().string();
     style.WebkitFilter = 'drop-shadow(' + styleVal + ')';
 });
-/**
- * @qs Width
- * @param {MIN_MAX} [restriction]
- * @param {number} size
- * @example w- w-n w-x
- * @implement w-[restriction]-[size]
- */
-/**
- * @qs Height
- * @param {MIN_MAX} [restriction]
- * @param {number} size
- * @example h- h-n h-x
- * @implement h-[restriction]-[size]
- */
-QAC(/^([wh])(-[nx])?-([\w\.%]+)$/, function (match, style) {
-    var styleKey = '';
-    if (match[2] === '-n') {
-        styleKey = 'min';
-    }
-    else if (match[2] === '-x') {
-        styleKey = 'max';
-    }
-    if (match[1] === 'w') { // width
-        styleKey += 'Width';
-    }
-    else { // height
-        styleKey += 'Height';
-    }
-    // Lowercase first letter
-    styleKey = styleKey.charAt(0).toLowerCase() + styleKey.slice(1);
-    var size = evalPixels(match[3]);
-    if (size === 'IPHONEXTOPNOTCH') {
-        size = 'env(safe-area-inset-top)';
-    }
-    style[styleKey] = size;
-});
+/*
+ 
+ ████████╗██████╗  █████╗ ███╗   ██╗███████╗███████╗ ██████╗ ██████╗ ███╗   ███╗
+ ╚══██╔══╝██╔══██╗██╔══██╗████╗  ██║██╔════╝██╔════╝██╔═══██╗██╔══██╗████╗ ████║
+    ██║   ██████╔╝███████║██╔██╗ ██║███████╗█████╗  ██║   ██║██████╔╝██╔████╔██║
+    ██║   ██╔══██╗██╔══██║██║╚██╗██║╚════██║██╔══╝  ██║   ██║██╔══██╗██║╚██╔╝██║
+    ██║   ██║  ██║██║  ██║██║ ╚████║███████║██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║
+    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
+                                                                                
+ 
+*/
 /**
  * @qs Transform-Scale
  * @desc uniform scaling only
@@ -380,6 +584,17 @@ QAC(/^fw-(.+)$/, function (match, style) {
     var size = match[1];
     style.fontWeight = size;
 });
+/*
+ 
+ ████████╗███████╗██╗  ██╗████████╗
+ ╚══██╔══╝██╔════╝╚██╗██╔╝╚══██╔══╝
+    ██║   █████╗   ╚███╔╝    ██║
+    ██║   ██╔══╝   ██╔██╗    ██║
+    ██║   ███████╗██╔╝ ██╗   ██║
+    ╚═╝   ╚══════╝╚═╝  ╚═╝   ╚═╝
+                                   
+ 
+*/
 /**
  * @qs Font-Size
  * @param {number} size set in px. Add suffix to override (ie: fs-10pt)
@@ -424,25 +639,6 @@ QAC(/^td-([nul])$/, function (match, style) {
     style.textDecoration = TEXTDECORATION_LOOKUP[match[1]];
 });
 /**
- * @enum
- */
-var VERTICALALIGN_LOOKUP = {
-    b: 'baseline',
-    s: 'sub',
-    p: 'super',
-    m: 'middle',
-    t: 'top',
-};
-/**
- * @qs Vertical-Align
- * @param {VERTICALALIGN_LOOKUP} value
- * @example va-b, va-s, va-p, va-m, va-t
- * @implement va-[value]
- */
-QAC(/^va-([bspmt])$/, function (match, style) {
-    style.verticalAlign = VERTICALALIGN_LOOKUP[match[1]];
-});
-/**
  * @qs Letter-Spacing
  * @param {number} size in pixels, or specify another unit
  * @example ls-
@@ -463,16 +659,181 @@ QAC(/^wos-(.+)$/, function (match, style) {
     style.wordSpacing = size;
 });
 /**
- * FlexBox
+ * @qs Text-Align
+ * @param {TEXTALIGN_LOOKUP} direction
+ * @example ta-l, ta-r, ta-j, ta-c
+ * @implement ta-[direction]
  */
+QAC(/^ta-([lrjc])$/, function (match, style) {
+    style.textAlign = TEXTALIGN_LOOKUP[match[1]];
+});
+/**
+ * @qs line-Height
+ * @param {number} value
+ * @example lh-
+ * @implement lh-[value]
+ */
+QAC(/^lh-(.+)$/, function (match, style) {
+    var styleKey = 'lineHeight';
+    style[styleKey] = match[1];
+});
+/**
+ * @enum
+ */
+var WORDWRAP_LOOKUP = {
+    n: 'normal',
+    b: 'break-word',
+};
+/**
+ * qs WordWrap
+ * @param {WORDWRAP_LOOKUP} value
+ * @example ww-n, ww-b
+ * * @implement ww-[value]
+ */
+QAC(/^ww-([nb])$/, function (match, style) {
+    var styleKey = 'wordWrap';
+    style[styleKey] = WORDWRAP_LOOKUP[match[1]];
+});
+/**
+ * @enum
+ * WordBreak
+ */
+var WORDBREAK_LOOKUP = {
+    n: 'normal',
+    b: 'break-all',
+    k: 'keep-all',
+    w: 'break-word',
+};
+/**
+ * qs WordBreak
+ * @param {WORDBREAK_LOOKUP} value
+ * @example wb-n, wb-b, wb-k, wb-w
+ * @implement ww-[value]
+ */
+QAC(/^wb-([nbkw])$/, function (match, style) {
+    var styleKey = 'wordBreak';
+    style[styleKey] = WORDBREAK_LOOKUP[match[1]];
+});
+/**
+ * @qs Line-Limit
+ * @desc WEBKIT ONLY!!!!! sets overflowY to hidden
+ * @param {number} value
+ * @example ll-
+ * @implement ll-[value]
+ */
+QAC(/^ll-(.+)$/, function (match, style) {
+    style.WebkitLineClamp = match[1];
+    style.display = '-webkit-box';
+    style.overflowY = 'hidden';
+    style.WebkitBoxOrient = 'vertical';
+});
+/**
+ * @enum
+ * whiteSpace: 'pre-wrap'
+ */
+var WHITESPACE_LOOKUP = {
+    p: 'pre-wrap',
+    n: 'nowrap',
+};
+/**
+ * @qs Whitespace
+ * @param {WHITESPACE_LOOKUP} value
+ * @example ws-p, ws-n
+ * @implement ws-[value]
+ */
+QAC(/^ws-([pn]+)$/, function (match, style) {
+    style.whiteSpace = WHITESPACE_LOOKUP[match[1]];
+});
+/**
+ * @enum
+ */
+var HYPHENS_LOOKUP = {
+    n: 'none',
+    m: 'manual',
+    a: 'auto',
+};
+/**
+ * @qs Hyphens
+ * @param {HYPHENS_LOOKUP} type
+ * @example hyp-n, hyp-m, hyp-a
+ * @implement hyp-[value]
+ */
+QAC(/^hyp-([nma])$/, function (match, style) {
+    style.MozHyphens = style.WebkitHyphens = style.OHyphens = style.hyphens = HYPHENS_LOOKUP[match[1]];
+});
+/**
+ * @qs text-indent
+ * @param {number} value in pixels, otherwise specify units.
+ * @example ti-
+ * @implement ti-[value]
+ */
+QAC(/^ti-(.+)$/, function (match, style) {
+    style.textIndent = evalPixels(match[1]);
+});
+/** @enum */
+var TEXTOVERFLOW_LOOKUP = {
+    c: 'clip',
+    e: 'ellipsis',
+};
+/**
+ * @qs text-overflow
+ * @param {TEXTOVERFLOW_LOOKUP} property
+ * @example tof-c, tof-e
+ * @implement tof-[property]
+ */
+QAC(/^tof-(.+)$/, function (match, style) {
+    var s = match[1];
+    // can be freeform text
+    style.textOverflow = TEXTOVERFLOW_LOOKUP[s];
+});
+/** @enum */
+var TEXTTRANSFORM_LOOKUP = {
+    c: 'capitalize',
+    l: 'lowercase',
+    u: 'uppercase',
+};
+/**
+ * @qs text-transform
+ * @param {TEXTTRANSFORM_LOOKUP} property
+ * @example tt-u, tt-l, tt-c
+ * @implement tt-[property]
+ */
+QAC(/^tt-([clu])$/, function (match, style) {
+    var s = match[1];
+    style.textTransform = TEXTTRANSFORM_LOOKUP[s];
+});
+/*
+ 
+ ███████╗██╗     ███████╗██╗  ██╗██████╗  ██████╗ ██╗  ██╗
+ ██╔════╝██║     ██╔════╝╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝
+ █████╗  ██║     █████╗   ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝
+ ██╔══╝  ██║     ██╔══╝   ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗
+ ██║     ███████╗███████╗██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗
+ ╚═╝     ╚══════╝╚══════╝╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝
+                                                          
+ 
+*/
+/**
+ * @qs Flex-
+ * @param {number} grow
+ * @param {number} shrink
+ * @param {number} basis in pixels, or specify units
+ * @example flx-,
+ * @implement flx-[grow]-[shrink]-[basis]
+ */
+QAC(/^flx-(.+)-(.+)-(.+)$/, function (match, style) {
+    style.WebkitFlexGrow = style.flexGrow = match[1];
+    style.WebkitFlexShrink = style.flexShrink = match[2];
+    style.WebkitFlexBasis = style.flexBasis = evalPixels(match[3]);
+});
 /**
  * @qs flex-grow
  * @desc note: sets flexBasis to 0px
  * @param {number} weight
- * @example fg-
- * @implement fg-[weight]
+ * @example flxg-
+ * @implement flxg-[weight]
  */
-QAC(/^fg-(.+)$/, function (match, style) {
+QAC(/^flxg-(.+)$/, function (match, style) {
     style.WebkitFlexGrow = style.flexGrow = match[1];
     style.WebkitFlexBasis = style.flexBasis = '0px'; // generally when we want flexgrow we want basis of 0 to act like a simple nested box system
 });
@@ -484,19 +845,6 @@ QAC(/^fg-(.+)$/, function (match, style) {
  */
 QAC(/^flxs-(.+)$/, function (match, style) {
     style.WebkitFlexShrink = style.flexShrink = match[1];
-});
-/**
- * @qs Flex-Basis
- * @param {number} grow
- * @param {number} shrink
- * @param {number} basis in pixels, or specify units
- * @example flx-,
- * @implement flx-[grow]-[shrink]-[basis]
- */
-QAC(/^flx-(.+)-(.+)-(.+)$/, function (match, style) {
-    style.WebkitFlexGrow = style.flexGrow = match[1];
-    style.WebkitFlexShrink = style.flexShrink = match[2];
-    style.WebkitFlexBasis = style.flexBasis = evalPixels(match[3]);
 });
 /**
  * @enum
@@ -527,6 +875,28 @@ QAC(/^autogrid-(.+)$/, function (match, style) {
     style.gridTemplateColumns = "repeat(auto-fill,minmax(" + evalPixels(match[1]) + ", 1fr))";
 });
 /**
+ * Column-count
+ * @param {number} number
+ * @example cols-
+ * @implement cols-[number]
+ */
+QAC(/^cols-(.+)$/, function (match, style) {
+    style.WebkitColumnCount = match[1];
+    style.MozColumnCount = match[1];
+    style.columnCount = match[1];
+});
+/**
+ * Column-gap
+ * @param {number} number
+ * @example colgap-
+ * @implement colgap-[number]
+ */
+QAC(/^colgap-(.+)$/, function (match, style) {
+    style.WebkitColumnGap = evalPixels(match[1]);
+    style.MozColumnGap = evalPixels(match[1]);
+    style.columnGap = evalPixels(match[1]);
+});
+/**
  * @qs Order
  * @param {number} order
  * @example ord-
@@ -550,24 +920,6 @@ QAC('cc', {
     justifyContent: 'center',
     WebkitAlignItems: 'center',
     WebkitJustifyContent: 'center',
-});
-/**
- * @enum
- */
-var TEXTALIGN_LOOKUP = {
-    l: 'left',
-    r: 'right',
-    c: 'center',
-    j: 'justify',
-};
-/**
- * @qs Text-Align
- * @param {TEXTALIGN_LOOKUP} direction
- * @example ta-l, ta-r, ta-j, ta-c
- * @implement ta-[direction]
- */
-QAC(/^ta-([lrjc])$/, function (match, style) {
-    style.textAlign = TEXTALIGN_LOOKUP[match[1]];
 });
 /**
  * @enum
@@ -648,230 +1000,26 @@ QAC(/^as-(a|fs|fe|c|b|s)$/, function (match, style) {
     style.WebkitAlignSelf = style.alignSelf = ALIGNSELF_LOOKUP[match[1]];
 });
 /**
- * @enum
+ * @qs order
+ * @param {number} sorting order
+ * @example order-5 order--5
+ * @implement order-[value]
  */
-var OVERFLOW_LOOKUP = {
-    v: 'visible',
-    h: 'hidden',
-    s: 'scroll',
-    a: 'auto',
-};
-/**
- * @qs Overflow
- * @param {string} [direction] x or y
- * @param {OVERFLOW_LOOKUP} type
- * @param {string} [nt] add -nt to set no touch in overflow scroll
- * @example o-v, o-h, o-s, o-a, o-x-v, o-x-h, o-x-s, o-x-a, o-y-v, o-y-h, o-y-s, o-y-a, o-s-nt
- * @implement o-[direction]-[type]-[nt]
- */
-// o-s-nt : no touch in overflow scroll
-QAC(/^o(-[xy])?-([vhsa])(-nt)?$/, function (match, style) {
-    var styleKey = 'overflow';
-    if (match[1] === '-x') {
-        styleKey += 'X';
-    }
-    else if (match[1] === '-y') {
-        styleKey += 'Y';
-    }
-    style[styleKey] = OVERFLOW_LOOKUP[match[2]];
-    if ((match[2] === 's' || match[2] === 'a') && match[3] !== '-nt') {
-        style.WebkitOverflowScrolling = 'touch';
-    }
+// order- [number]
+QAC(/^order-(.+)$/, function (match, style) {
+    style.order = match[1];
 });
-/**
- * @enum
- */
-var POSTION_LOOKUP = {
-    a: 'absolute',
-    r: 'relative',
-    s: 'static',
-    f: 'fixed',
-};
-/**
- * @qs position
- * @param {POSITION_LOOKUP} position
- * @example pos-a pos-r pos-s pos-f
- * @implement pos-[position]
- */
-QAC(/^pos-([arsf])$/, function (match, style) {
-    var styleKey = 'position';
-    style[styleKey] = POSTION_LOOKUP[match[1]];
-});
-/**
- * @enum
- */
-var DISPLAY_LOOKUP = {
-    b: 'block',
-    n: 'none',
-    i: 'inline',
-    ib: 'inline-block',
-    f: 'flex',
-    x: 'box',
-};
-/**
- * @qs Display
- * @param {DISPLAY_LOOKUP} display
- * @example d-b, d-n, d-i, d-ib, d-f
- * @implement d-[display]
- */
-QAC(/^d-([bnif]b?)$/, function (match, style) {
-    var styleKey = 'display';
-    style[styleKey] = DISPLAY_LOOKUP[match[1]];
-});
-/**
- * @qs Z-Index
- * @desc  DO NOT USE THIS! If you think you need to, you're wrong.
- * @param {number} value
- * @example z-
- * @implement z-[value]
- */
-// z
-QAC(/^z-(.+)$/, function (match, style) {
-    var styleKey = 'zIndex';
-    style[styleKey] = match[1];
-});
-/**
- * @qs line-Height
- * @param {number} value
- * @example lh-
- * @implement lh-[value]
- */
-QAC(/^lh-(.+)$/, function (match, style) {
-    var styleKey = 'lineHeight';
-    style[styleKey] = match[1];
-});
-/**
- * @enum
- */
-var WORDWRAP_LOOKUP = {
-    n: 'normal',
-    b: 'break-word',
-};
-/**
- * qs WordWrap
- * @param {WORDWRAP_LOOKUP} value
- * @example ww-n, ww-b
- * * @implement ww-[value]
- */
-QAC(/^ww-([nb])$/, function (match, style) {
-    var styleKey = 'wordWrap';
-    style[styleKey] = WORDWRAP_LOOKUP[match[1]];
-});
-/**
- * @enum
- * WordBreak
- */
-var WORDBREAK_LOOKUP = {
-    n: 'normal',
-    b: 'break-all',
-    k: 'keep-all',
-    w: 'break-word',
-};
-/**
- * qs WordBreak
- * @param {WORDBREAK_LOOKUP} value
- * @example wb-n, wb-b, wb-k, wb-w
- * @implement ww-[value]
- */
-QAC(/^wb-([nbkw])$/, function (match, style) {
-    var styleKey = 'wordBreak';
-    style[styleKey] = WORDBREAK_LOOKUP[match[1]];
-});
-/**
- * @qs Bottom
- * @param {number} value in pixels, or specifiy units.
- * @example bot-0
- * @implement bot-[value]
- * @implement bottom-[value]
- */
-QAC(/^bot-(.+)$/, function (match, style) {
-    var size = evalPixels(match[1]);
-    style.bottom = size;
-});
-QAC(/^bottom-(.+)$/, function (match, style) {
-    var size = evalPixels(match[1]);
-    style.bottom = size;
-});
-/**
- * @qs Left
- * @param {number} value in pixels, or specifiy units.
- * @example left-
- * @implement left-[value]
- */
-QAC(/^left-(.+)$/, function (match, style) {
-    var size = evalPixels(match[1]);
-    style.left = size;
-});
-/**
- * @qs Right
- * @param {number} value in pixels, or specifiy units.
- * @example right-
- * @implement right-[value]
- */
-QAC(/^right-(.+)$/, function (match, style) {
-    var size = evalPixels(match[1]);
-    style.right = size;
-});
-/**
- * @qs Top
- * @param {number} value in pixels, or specifiy units.
- * @example top-
- * @implement top-[value]
- */
-QAC(/^top-(.+)$/, function (match, style) {
-    var size = evalPixels(match[1]);
-    style.top = size;
-});
-/**
- * @qs Line-Limit
- * @desc WEBKIT ONLY!!!!! sets overflowY to hidden
- * @param {number} value
- * @example ll-
- * @implement ll-[value]
- */
-QAC(/^ll-(.+)$/, function (match, style) {
-    style.WebkitLineClamp = match[1];
-    style.display = '-webkit-box';
-    style.overflowY = 'hidden';
-    style.WebkitBoxOrient = 'vertical';
-});
-/**
- * @enum
- * whiteSpace: 'pre-wrap'
- */
-var WHITESPACE_LOOKUP = {
-    p: 'pre-wrap',
-    n: 'nowrap',
-};
-/**
- * @qs Whitespace
- * @param {WHITESPACE_LOOKUP} value
- * @example ws-p, ws-n
- * @implement ws-[value]
- */
-QAC(/^ws-([pn]+)$/, function (match, style) {
-    style.whiteSpace = WHITESPACE_LOOKUP[match[1]];
-});
-/**
- * @enum
- */
-var HYPHENS_LOOKUP = {
-    n: 'none',
-    m: 'manual',
-    a: 'auto',
-};
-/**
- * @qs Hyphens
- * @param {HYPHENS_LOOKUP} type
- * @example hyp-n, hyp-m, hyp-a
- * @implement hyp-[value]
- */
-QAC(/^hyp-([nma])$/, function (match, style) {
-    style.MozHyphens = style.WebkitHyphens = style.OHyphens = style.hyphens = HYPHENS_LOOKUP[match[1]];
-});
-/**
- * background
- */
+/*
+ 
+ ██████╗  █████╗  ██████╗██╗  ██╗ ██████╗ ██████╗  ██████╗ ██╗   ██╗███╗   ██╗██████╗
+ ██╔══██╗██╔══██╗██╔════╝██║ ██╔╝██╔════╝ ██╔══██╗██╔═══██╗██║   ██║████╗  ██║██╔══██╗
+ ██████╔╝███████║██║     █████╔╝ ██║  ███╗██████╔╝██║   ██║██║   ██║██╔██╗ ██║██║  ██║
+ ██╔══██╗██╔══██║██║     ██╔═██╗ ██║   ██║██╔══██╗██║   ██║██║   ██║██║╚██╗██║██║  ██║
+ ██████╔╝██║  ██║╚██████╗██║  ██╗╚██████╔╝██║  ██║╚██████╔╝╚██████╔╝██║ ╚████║██████╔╝
+ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚═════╝
+                                                                                      
+ 
+*/
 /** @enum */
 var BACKGROUND_POS = {
     c: 'center',
@@ -887,29 +1035,29 @@ var BACKGROUND_POS = {
 /**
  * @qs Background-Position
  * @param {BACKGROUND_POS_LOOKUP} position
- * @example bg-c, bg-t, bg-b, bg-l, bg-r, bg-0, bg-1, bg-2, bg-3
- * @implement bg-[position]
+ * @example bgpos-c, bgpos-t, bgpos-b, bgpos-l, bgpos-r, bgpos-0, bgpos-1, bgpos-2, bgpos-3
+ * @implement bgpos-[position]
  */
-QAC(/^bg-([ctblr0123])$/, function (match, style) {
+QAC(/^bgpos-([ctblr0123])$/, function (match, style) {
     style.backgroundPosition = BACKGROUND_POS[match[1]];
 });
 /**
  * @qs Background-Size
  * @param {number|cover|contain} size in pixels. Otherwise specify units. You may also specify cover or contain
- * @example bgs-20%, bgs-cover, bgs-contain
- * @implement bgs-[size]
+ * @example bgsize-20%, bgsize-cover, bgsize-contain
+ * @implement bgsize-[size]
  */
-// bgs- [cover, contain]
-QAC(/^bgs-([\w\.%]+)$/, function (match, style) {
+// bgsize- [cover, contain]
+QAC(/^bgsize-([\w\.%]+)$/, function (match, style) {
     style.backgroundSize = evalPixels(match[1]);
 });
 /**
  * @qs Background-Image
  * @param {string} url for image
- * @example bgi-templateImages/green_back.png
- * @implement bgi-[url]
+ * @example bgimg-templateImages/green_back.png
+ * @implement bgimg-[url]
  */
-QAC(/^bgi-(.+)$/, function (match, style) {
+QAC(/^bgimg-(.+)$/, function (match, style) {
     style.backgroundImage = 'url(' + match[1] + ')';
 });
 /** @enum */
@@ -922,40 +1070,39 @@ var BACKGROUND_REPEAT = {
 /**
  * @qs Background-Repeat
  * @param {BACKGROUND_REPEAT} value
- * @example bgr-r, bgr-n, bgr-x, bgr-y
- * @implement bgr-[value]
+ * @example bgrepeat-r, bgrepeat-n, bgrepeat-x, bgrepeat-y
+ * @implement bgrepeat-[value]
  */
-// bgr-
-QAC(/^bgr-([rnxy])$/, function (match, style) {
+// bgrepeat-
+QAC(/^bgrepeat-([rnxy])$/, function (match, style) {
     style.backgroundRepeat = BACKGROUND_REPEAT[match[1]];
 });
-/**
- * visibility
- */
+/*
+ 
+ ██╗   ██╗██╗███████╗██╗██████╗ ██╗██╗     ██╗████████╗██╗   ██╗
+ ██║   ██║██║██╔════╝██║██╔══██╗██║██║     ██║╚══██╔══╝╚██╗ ██╔╝
+ ██║   ██║██║███████╗██║██████╔╝██║██║     ██║   ██║    ╚████╔╝
+ ╚██╗ ██╔╝██║╚════██║██║██╔══██╗██║██║     ██║   ██║     ╚██╔╝
+  ╚████╔╝ ██║███████║██║██████╔╝██║███████╗██║   ██║      ██║
+   ╚═══╝  ╚═╝╚══════╝╚═╝╚═════╝ ╚═╝╚══════╝╚═╝   ╚═╝      ╚═╝
+                                                                
+ 
+*/
 /** @enum */
 var VISIBILITY_LOOKUP = {
     n: 'normal',
     h: 'hidden',
     v: 'visible',
 };
-// v-h, v-n
+// vis-h, vis-n
 /**
  * @qs visibility
  * @param {VISIBILITY_LOOKUP} value
- * @example v-h, v-n
- * @implement v-[value]
+ * @example vis-h, vis-n
+ * @implement vis-[value]
  */
-QAC(/^v-(.+)$/, function (match, style) {
+QAC(/^vis-(.+)$/, function (match, style) {
     style.visibility = VISIBILITY_LOOKUP[match[1]];
-});
-/**
- * @qs content
- * @param {string} value
- * @example con-
- * @implement con-[value]
- */
-QAC(/^con-(.+)$/, function (match, style) {
-    style.content = match[1];
 });
 /**
  * @qs opacity
@@ -966,47 +1113,17 @@ QAC(/^con-(.+)$/, function (match, style) {
 QAC(/^op-(.+)$/, function (match, style) {
     style.opacity = match[1];
 });
-/**
- * @qs text-indent
- * @param {number} value in pixels, otherwise specify units.
- * @example ti-
- * @implement ti-[value]
- */
-QAC(/^ti-(.+)$/, function (match, style) {
-    style.textIndent = evalPixels(match[1]);
-});
-/** @enum */
-var TEXTOVERFLOW_LOOKUP = {
-    c: 'clip',
-    e: 'ellipsis',
-};
-/**
- * @qs text-overflow
- * @param {TEXTOVERFLOW_LOOKUP} property
- * @example tof-c, tof-e
- * @implement tof-[property]
- */
-QAC(/^tof-(.+)$/, function (match, style) {
-    var s = match[1];
-    // can be freeform text
-    style.textOverflow = TEXTOVERFLOW_LOOKUP[s];
-});
-/** @enum */
-var TEXTTRANSFORM_LOOKUP = {
-    c: 'capitalize',
-    l: 'lowercase',
-    u: 'uppercase',
-};
-/**
- * @qs text-transform
- * @param {TEXTTRANSFORM_LOOKUP} property
- * @example tt-u, tt-l, tt-c
- * @implement tt-[property]
- */
-QAC(/^tt-([clu])$/, function (match, style) {
-    var s = match[1];
-    style.textTransform = TEXTTRANSFORM_LOOKUP[s];
-});
+/*
+ 
+ ██╗███╗   ██╗██████╗ ██╗   ██╗████████╗
+ ██║████╗  ██║██╔══██╗██║   ██║╚══██╔══╝
+ ██║██╔██╗ ██║██████╔╝██║   ██║   ██║
+ ██║██║╚██╗██║██╔═══╝ ██║   ██║   ██║
+ ██║██║ ╚████║██║     ╚██████╔╝   ██║
+ ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝    ╚═╝
+                                        
+ 
+*/
 /** @enum */
 var RESIZE_LOOKUP = {
     v: 'vertical',
@@ -1042,31 +1159,85 @@ QAC(/^us-([nta])$/, function (match, style) {
     style.MozUserSelect = style.WebkitUserSelect = style.UserSelect = style.WebkitTouchCallout = styleVal;
 });
 /** @enum */
+var POINTEREVENTS_LOOKUP = {
+    a: 'auto',
+    n: 'none',
+    vp: 'visiblePainted',
+    vf: 'visibleFill',
+    vs: 'visibleStroke',
+    v: 'visible',
+    p: 'painted',
+    f: 'fill',
+    s: 'stroke',
+    all: 'all',
+    i: 'inherit',
+};
+/**
+ * @qs pointer-events
+ * @param {POINTEREVENTS_LOOKUP} property
+ * @example pe-a, pe-n, pe-vp, pe-vs, pe-v, pe-p, pe-f, pe-s, pe-all, pe-i
+ * @implement pe-
+ */
+QAC(/^pe-([a-z]+)$/, function (match, style) {
+    var property = POINTEREVENTS_LOOKUP[match[1]];
+    style.pointerEvents = property;
+});
+/** @enum */
+var CURSOR_LOOKUP = {
+    p: 'pointer',
+    a: 'auto',
+    d: 'default',
+    t: 'text',
+};
+/**
+ * @qs Cursor
+ * @param {CURSOR_LOOKUP} property
+ * @example cur-p, cur-a, cur-d, cur-t
+ * @implements cur-[property]
+ */
+QAC(/^cur-([pdat])$/, function (match, style) {
+    style.cursor = CURSOR_LOOKUP[match[1]];
+});
+/*
+ 
+ ████████╗██████╗  █████╗ ███╗   ██╗███████╗██╗████████╗██╗ ██████╗ ███╗   ██╗
+ ╚══██╔══╝██╔══██╗██╔══██╗████╗  ██║██╔════╝██║╚══██╔══╝██║██╔═══██╗████╗  ██║
+    ██║   ██████╔╝███████║██╔██╗ ██║███████╗██║   ██║   ██║██║   ██║██╔██╗ ██║
+    ██║   ██╔══██╗██╔══██║██║╚██╗██║╚════██║██║   ██║   ██║██║   ██║██║╚██╗██║
+    ██║   ██║  ██║██║  ██║██║ ╚████║███████║██║   ██║   ██║╚██████╔╝██║ ╚████║
+    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+                                                                              
+ 
+*/
+/** @enum */
 var TRANSITION_LOOKUP = {
-    bc: 'background-color',
-    bp: 'background-position',
-    bw: 'border-width',
+    b: 'border-width',
+    bgcolor: 'background-color',
+    bgpos: 'background-position',
+    bottom: 'bottom',
     brdc: 'border-color',
-    bot: 'bottom',
     col: 'color',
     f: 'fill',
     fs: 'font-size',
     fw: 'font-weight',
-    ht: 'height',
-    l: 'left',
-    hx: 'max-height',
-    wx: 'max-width',
+    h: 'height',
     hn: 'min-height',
-    wn: 'min-width',
+    hx: 'max-height',
+    left: 'left',
     m: 'margin',
+    mb: 'margin-bottom',
     ml: 'margin-left',
-    o: 'opacity',
-    r: 'right',
-    t: 'top',
+    mr: 'margin-right',
+    mt: 'margin-top',
+    none: 'none',
+    op: 'opacity',
+    right: 'right',
+    top: 'top',
+    tr: 'transform',
     v: 'visibility',
     w: 'width',
-    tr: 'transform',
-    none: 'none',
+    wn: 'min-width',
+    wx: 'max-width',
 };
 // tslint:disable:max-line-length
 /**
@@ -1094,109 +1265,31 @@ QAC(/^trans-(.*)-([.0-9]+)s?$/, function (match, style) {
     var styleVal = styles.join(', ');
     style.MozTransition = style.WebkitTransition = style.OTransition = style.Transition = styleVal;
 });
-/** @enum */
-var POINTEREVENTS_LOOKUP = {
-    a: 'auto',
-    n: 'none',
-    vp: 'visiblePainted',
-    vf: 'visibleFill',
-    vs: 'visibleStroke',
-    v: 'visible',
-    p: 'painted',
-    f: 'fill',
-    s: 'stroke',
-    all: 'all',
-    i: 'inherit',
-};
 /**
- * @qs pointer-events
- * @param {POINTEREVENTS_LOOKUP} property
- * @example ptrevt-a, ptrevt-n, ptrevt-vp, ptrevt-vs, ptrevt-v, ptrevt-p, ptrevt-f, ptrevt-s, ptrevt-all, ptrevt-i
- * @implement ptrevt-
+ * @qs Animation
+ * @param {string} AnimationName
+ * @param {number} duration in milliseconds
+ * @example anim-
+ * @implement anim-[AnimationName]-[duration]
  */
-QAC(/^ptrevt-([a-z]+)$/, function (match, style) {
-    var property = POINTEREVENTS_LOOKUP[match[1]];
-    style.pointerEvents = property;
+QAC(/^anim-(.[^-]+)-(.[^-]+)$/, function (match, style) {
+    var anim = match[1];
+    var time = match[2] + 'ms';
+    style.animationName = anim;
+    style.animationDuration = time;
+    style.animationIterationCount = 'infinite';
 });
-/**
- * cursor
- */
-/**
- * @qs uiClickable
- * @style
- * @prop cursor pointer
- * @desc sets css property cursor to 'pointer'
- * @example uiClickable
- * @implement uiClickable
- */
-QAC('uiClickable', {
-    cursor: 'pointer',
-});
-/**
- * @qs uiUnclickable
- * @style
- * @prop cursor pointer
- * @desc sets css property cursor to 'default'
- * @example uiUnclickable
- * @implement uiUnclickable
- */
-QAC('uiUnclickable', {
-    cursor: 'default',
-});
-/** @enum */
-var CURSOR_LOOKUP = {
-    p: 'pointer',
-    a: 'auto',
-    d: 'default',
-    t: 'text',
-};
-/**
- * @qs Cursor
- * @param {CURSOR_LOOKUP} property
- * @example cur-p, cur-a, cur-d, cur-t
- * @implements cur-[property]
- */
-QAC(/^cur-([pdat])$/, function (match, style) {
-    style.cursor = CURSOR_LOOKUP[match[1]];
-});
-/**
- * other
- */
-/**
- * @qs fullSize
- * @style
- * @property top 0
- * @property bottom 0
- * @property left 0
- * @property right 0
- * @desc To fill it's parent, sets all position properties to 0
- * @example fullSize
- * @implement fullSize
- */
-QAC('fullSize', {
-    top: '0',
-    bottom: '0',
-    left: '0',
-    right: '0',
-});
-/**
- * @qs cover
- * @style
- * @property bgs-cover
- * @property bg-c
- * @property bgr-n
- * @desc Center, non-repeated, and covering. Most common background image set.
- * @example cover
- * @implement cover
- */
-QAC('cover', {
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-});
-/**
- * Colors
- */
+/*
+ 
+  ██████╗ ██████╗ ██╗      ██████╗ ██████╗ ███████╗
+ ██╔════╝██╔═══██╗██║     ██╔═══██╗██╔══██╗██╔════╝
+ ██║     ██║   ██║██║     ██║   ██║██████╔╝███████╗
+ ██║     ██║   ██║██║     ██║   ██║██╔══██╗╚════██║
+ ╚██████╗╚██████╔╝███████╗╚██████╔╝██║  ██║███████║
+  ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝
+                                                   
+ 
+*/
 function colorFromName(colorName, errors) {
     var col;
     if (colorName[0] === '#') {
@@ -1296,31 +1389,6 @@ QAC(/^c-(.[^-]+)-(.+)$/, function (match, style, errors) {
         style[keys[i]] = col;
     }
 });
-/**
- * Column-count
- * @param {number} number
- * @example cols-
- * @implement cols-[number]
- */
-QAC(/^cols-(.+)$/, function (match, style) {
-    style.WebkitColumnCount = match[1];
-    style.MozColumnCount = match[1];
-    style.columnCount = match[1];
-});
-/**
- * Column-gap
- * @param {number} number
- * @example gap-
- * @implement gap-[number]
- */
-QAC(/^gap-(.+)$/, function (match, style) {
-    style.WebkitColumnGap = evalPixels(match[1]);
-    style.MozColumnGap = evalPixels(match[1]);
-    style.columnGap = evalPixels(match[1]);
-});
-/**
- * Gradients
- */
 // grad-[dir]-[color1]-[color2]-[b?]
 // dirs:
 //      v(ertical), h(orizontal), d(iagonal \ ), c(ross-diagonal / )
@@ -1417,24 +1485,17 @@ function setColorConstants(colorConstants) {
     gHasColorConstants = true;
 }
 exports.setColorConstants = setColorConstants;
-/**
- * @qs Animation
- * @param {string} AnimationName
- * @param {number} duration in milliseconds
- * @example anim-
- * @implement anim-[AnimationName]-[duration]
- */
-QAC(/^anim-(.[^-]+)-(.[^-]+)$/, function (match, style) {
-    var anim = match[1];
-    var time = match[2] + 'ms';
-    style.animationName = anim;
-    style.animationDuration = time;
-    style.animationIterationCount = 'infinite';
-});
-/**
- * Filters
- */
-// Blur
+/*
+ 
+ ███████╗██╗██╗  ████████╗███████╗██████╗ ███████╗
+ ██╔════╝██║██║  ╚══██╔══╝██╔════╝██╔══██╗██╔════╝
+ █████╗  ██║██║     ██║   █████╗  ██████╔╝███████╗
+ ██╔══╝  ██║██║     ██║   ██╔══╝  ██╔══██╗╚════██║
+ ██║     ██║███████╗██║   ███████╗██║  ██║███████║
+ ╚═╝     ╚═╝╚══════╝╚═╝   ╚══════╝╚═╝  ╚═╝╚══════╝
+                                                  
+ 
+*/
 /**
  * @qs Blur
  * @param {number} size in pixles, otherwise specify units.
@@ -1458,6 +1519,48 @@ QAC(/^invert-(.+)$/, function (match, style) {
     style.filter = 'invert(' + amount + ')';
     style.WebkitFilter = 'invert(' + amount + ')';
 });
+/*
+ 
+  ██████╗ ██████╗ ███╗   ███╗██████╗  ██████╗ ███████╗
+ ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔═══██╗██╔════╝
+ ██║     ██║   ██║██╔████╔██║██████╔╝██║   ██║███████╗
+ ██║     ██║   ██║██║╚██╔╝██║██╔══██╗██║   ██║╚════██║
+ ╚██████╗╚██████╔╝██║ ╚═╝ ██║██████╔╝╚██████╔╝███████║
+  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═════╝  ╚═════╝ ╚══════╝
+                                                      
+*/
+/**
+ * @qs fullSize
+ * @style
+ * @property top 0
+ * @property bottom 0
+ * @property left 0
+ * @property right 0
+ * @desc To fill it's parent, sets all position properties to 0
+ * @example fullSize
+ * @implement fullSize
+ */
+QAC('fullSize', {
+    top: '0',
+    bottom: '0',
+    left: '0',
+    right: '0',
+});
+/**
+ * @qs cover
+ * @style
+ * @property bgsize-cover
+ * @property bgpos-c
+ * @property bgrepeat-n
+ * @desc Center, non-repeated, and covering. Most common background image set.
+ * @example cover
+ * @implement cover
+ */
+QAC('cover', {
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+});
 // FadeIn
 /**
  * @qs Invert
@@ -1473,29 +1576,4 @@ QAC(/^fadeIn-(.+)$/, function (match, style) {
     style.MozAnimation = anim;
     style.MsAnimation = anim;
     style.OAnimation = anim;
-});
-/**
- * @qs object-fit
- * @param {fill | contain | cover | none | scaleDown}
- * @example of-contain, of-scaleDown
- * @implement of-[value]
- */
-// of- [fill, contain, cover, none, scaleDown]
-QAC(/^of-(.+)$/, function (match, style) {
-    style.objectFit = match[0];
-});
-/**
- * @qs order
- * @param {number} sorting order
- * @example order-5 order--5
- * @implement order-[value]
- */
-// order- [number]
-QAC(/^order-(.+)$/, function (match, style) {
-    style.order = match[1];
-});
-QAC(/^lc-(.+)$/, function (match, style) {
-    style.lineClamp = style.WebkitLineClamp = match[1];
-    style.display = '-webkit-box';
-    style.WebkitBoxOrient = 'vertical';
 });

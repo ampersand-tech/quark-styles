@@ -17,7 +17,13 @@ function computeSafeAreaSize() {
     var bottom = 0;
     var left = 0;
     var right = 0;
-    if (!window) {
+    try {
+        if (!window) {
+            console.log('safe area: no window found');
+            return { top: top, left: left, right: right, bottom: bottom };
+        }
+    }
+    catch (_ex) {
         console.log('safe area: no window found');
         return { top: top, left: left, right: right, bottom: bottom };
     }
