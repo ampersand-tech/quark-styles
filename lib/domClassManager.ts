@@ -351,7 +351,10 @@ function triggerStyleSheetUpdate() {
   gUpdateTimer = setTimeout(function() {
     gUpdateTimer = null;
     if (!gStyleSheet) {
-      gStyleSheet = document.getElementById('domClassManagerStyles');
+      try {
+        gStyleSheet = document.getElementById('domClassManagerStyles');
+      } catch (_ex) {
+      }
     }
     if (gStyleSheet) {
       gStyleSheet.innerHTML = gStyleSheetContents.join('');

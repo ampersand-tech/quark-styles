@@ -24,7 +24,12 @@ function computeSafeAreaSize() {
   let left = 0;
   let right = 0;
 
-  if (!window) {
+  try {
+    if (!window) {
+      console.log('safe area: no window found');
+      return {top, left, right, bottom};
+    }
+  } catch (_ex) {
     console.log('safe area: no window found');
     return {top, left, right, bottom};
   }
