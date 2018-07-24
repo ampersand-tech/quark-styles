@@ -87,10 +87,15 @@ function computeSafeAreaSize() {
 }
 
 export let safeAreaSize: SafeAreaInfo = {top: 0, left: 0, right: 0, bottom: 0};
-if ((window as any).safeAreaSize) {
-  console.log('Got injected safe area size: ' + (window as any).safeAreaSize);
-  safeAreaSize = (window as any).safeAreaSize;
+
+try {
+  if ((window as any).safeAreaSize) {
+    console.log('Got injected safe area size: ' + (window as any).safeAreaSize);
+    safeAreaSize = (window as any).safeAreaSize;
+  }
+} catch (_ex) {
 }
+
 let safeAreaCalculated = false;
 let safeAreaCbs: (() => void)[] = [];
 

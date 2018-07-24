@@ -72,9 +72,13 @@ function computeSafeAreaSize() {
     return { top: top, left: left, right: right, bottom: bottom };
 }
 exports.safeAreaSize = { top: 0, left: 0, right: 0, bottom: 0 };
-if (window.safeAreaSize) {
-    console.log('Got injected safe area size: ' + window.safeAreaSize);
-    exports.safeAreaSize = window.safeAreaSize;
+try {
+    if (window.safeAreaSize) {
+        console.log('Got injected safe area size: ' + window.safeAreaSize);
+        exports.safeAreaSize = window.safeAreaSize;
+    }
+}
+catch (_ex) {
 }
 var safeAreaCalculated = false;
 var safeAreaCbs = [];
