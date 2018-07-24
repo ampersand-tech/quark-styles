@@ -29,15 +29,15 @@ function computeSafeAreaSize() {
       console.log('safe area: no window found');
       return {top, left, right, bottom};
     }
+
+    // Check for our script injection of safe area sizes that do not need to be measured
+    if ((window as any).safeAreaSize as SafeAreaInfo) {
+      console.log('safe area: already found injected values: ', (window as any).safeAreaSize);
+      return (window as any).safeAreaSize;
+    }
   } catch (_ex) {
     console.log('safe area: no window found');
     return {top, left, right, bottom};
-  }
-
-  // Check for our script injection of safe area sizes that do not need to be measured
-  if ((window as any).safeAreaSize as SafeAreaInfo) {
-    console.log('safe area: already found injected values: ', (window as any).safeAreaSize);
-    return (window as any).safeAreaSize;
   }
 
   // If dev mode and iPhoneX dimensions, fake the safe-area-inset stuff
