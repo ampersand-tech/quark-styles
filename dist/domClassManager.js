@@ -500,12 +500,13 @@ function makeGlobalClass(globalClassName, classesString) {
 }
 exports.makeGlobalClass = makeGlobalClass;
 function convertClasses(type, props) {
+    var classes = props ? (props.classes || props['data-classes']) : undefined;
     // do early classes string validation on all elements to catch the topmost offender
-    if (EARLY_CLASSES_VALIDATION && props && typeof props.classes === 'string') {
+    if (EARLY_CLASSES_VALIDATION && typeof classes === 'string') {
         for (var i = 0; i < INVALID_STRINGS.length; ++i) {
-            if (props.classes.indexOf(INVALID_STRINGS[i]) >= 0) {
+            if (classes.indexOf(INVALID_STRINGS[i]) >= 0) {
                 var errKey = 'classes string contains invalid substring "' + INVALID_STRINGS[i] + '"';
-                logError(errKey, { debugName: type, classes: props.classes });
+                logError(errKey, { debugName: type, classes: classes });
             }
         }
     }
@@ -526,8 +527,8 @@ function convertClasses(type, props) {
         if (style) {
             style = Object.assign({}, style);
         }
-        if (props.classes) {
-            var parsed = parseClasses(props.classes, type.name || type);
+        if (classes) {
+            var parsed = parseClasses(classes, type.name || type);
             if (style) {
                 // merge inline styles and class styles
                 style = Object.assign(Object.assign({}, parsed.style), style);
@@ -553,6 +554,7 @@ function convertClasses(type, props) {
         }
         // Delete all the extraneous processed classes
         delete props.classes;
+        delete props['data-classes'];
         delete props.set;
         delete props.selectorParent;
     }

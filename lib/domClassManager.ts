@@ -609,12 +609,14 @@ export function makeGlobalClass(globalClassName: string, classesString: string):
 }
 
 export function convertClasses(type, props) {
+  const classes = props ? (props.classes || props['data-classes']) : undefined;
+
   // do early classes string validation on all elements to catch the topmost offender
-  if (EARLY_CLASSES_VALIDATION && props && typeof props.classes === 'string') {
+  if (EARLY_CLASSES_VALIDATION && typeof classes === 'string') {
     for (let i = 0; i < INVALID_STRINGS.length; ++i) {
-      if (props.classes.indexOf(INVALID_STRINGS[i]) >= 0) {
+      if (classes.indexOf(INVALID_STRINGS[i]) >= 0) {
         const errKey = 'classes string contains invalid substring "' + INVALID_STRINGS[i] + '"';
-        logError(errKey, { debugName: type, classes: props.classes });
+        logError(errKey, { debugName: type, classes: classes });
       }
     }
   }
@@ -637,8 +639,8 @@ export function convertClasses(type, props) {
     if (style) {
       style = Object.assign({}, style);
     }
-    if (props.classes) {
-      const parsed = parseClasses(props.classes, type.name || type);
+    if (classes) {
+      const parsed = parseClasses(classes, type.name || type);
       if (style) {
         // merge inline styles and class styles
         style = Object.assign(Object.assign({}, parsed.style), style);
@@ -669,6 +671,7 @@ export function convertClasses(type, props) {
 
     // Delete all the extraneous processed classes
     delete props.classes;
+    delete props['data-classes'];
     delete props.set;
     delete props.selectorParent;
   }
