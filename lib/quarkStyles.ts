@@ -307,16 +307,13 @@ QAC(/^d-([bnif]b?)$/, function(match, style) {
 
 // z
 QAC(/^z-(.+)$/, function(match, style) {
-  const styleKey = 'zIndex';
-
-  style[styleKey] = match[1];
+  style.zIndex = match[1];
 });
 
 /**
  * @qs Bottom
  * @param {number} value in pixels, or specifiy units.
- * @example bot-0
- * @implement bot-[value]
+ * @example bottom-0
  * @implement bottom-[value]
  */
 QAC(/^bottom-(.+)$/, function(match, style) {
@@ -747,7 +744,7 @@ QAC(/^ta-([lrjc])$/, function(match, style) {
 
 
 /**
- * @qs line-Height
+ * @qs Line-Height
  * @param {number} value
  * @example lh-
  * @implement lh-[value]
@@ -916,7 +913,7 @@ QAC(/^tt-([clu])$/, function(match, style) {
 */
 
 /**
- * @qs Flex-
+ * @qs flex-
  * @param {number} grow
  * @param {number} shrink
  * @param {number} basis in pixels, or specify units
@@ -926,12 +923,30 @@ QAC(/^tt-([clu])$/, function(match, style) {
 QAC(/^flx-(.+)-(.+)-(.+)$/, function(match, style) {
   style.WebkitFlexGrow = style.flexGrow = match[1];
   style.WebkitFlexShrink = style.flexShrink = match[2];
-  style.WebkitFlexBasis =  style.flexBasis = evalPixels(match[3]);
+  style.WebkitFlexBasis = style.flexBasis = evalPixels(match[3]);
+});
+
+/** @enum */
+const FLEXDIRECTION_LOOKUP = {
+  c: 'column',
+  cr: 'column-reverse',
+  r: 'row',
+  rr: 'row-reverse',
+};
+
+/**
+ * @qs flex-direction
+ * @param {FLEXDIRECTION_LOOKUP} property
+ * @example flxd-c, flxd-r, flxd-cr, flxd-rr
+ * @implement flxd-[property]
+ */
+QAC(/^flxd-([cr]r?)$/, function(match, style) {
+  style.WebkitFlexDirection = style.flexDirection = FLEXDIRECTION_LOOKUP[match[1]];
 });
 
 /**
  * @qs flex-grow
- * @desc note: sets flexBasis to 0px
+ * @desc note: also sets flexBasis to 0px
  * @param {number} weight
  * @example flxg-
  * @implement flxg-[weight]
@@ -949,6 +964,16 @@ QAC(/^flxg-(.+)$/, function(match, style) {
  */
 QAC(/^flxs-(.+)$/, function(match, style) {
   style.WebkitFlexShrink = style.flexShrink = match[1];
+});
+
+/**
+ * @qs flex-basis
+ * @param {number} weight
+ * @example flxb-
+ * @implement flxb-[weight]
+ */
+QAC(/^flxb-(.+)$/, function(match, style) {
+  style.WebkitFlexBasis = style.flexBasis = evalPixels(match[1]);
 });
 
 /**
