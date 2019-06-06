@@ -1,12 +1,13 @@
 {
   "name": "quark-styles",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Condensed styling shorthand for React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "./node_modules/.bin/tsc",
-    "test": "mocha -r ts-node/register test/**/*-test.ts"
+    "test": "mocha -r ts-node/register test/**/*-test.ts",
+    "docs": "./node_modules/.bin/jsdoc dist/quarkStyles.js -d docs"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "@types/react": "^16.0.0",
     "chai": "^4.1.2",
     "color": "^3.0.0",
+    "jsdoc": "^3.6.2",
     "mocha": "^5.2.0",
     "react": "^16.0.0",
     "ts-node": "^7.0.0",
