@@ -1,0 +1,231 @@
+
+#sidebar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: 220px;
+  background: #fafcfc;
+  border-right: 1px solid #f0f4f7;
+  overflow: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #0099e5;
+  font-weight: 500;
+}
+
+h2 {
+  margin-left: 20px;
+  color: #292e31;
+  font-family: Whitney SSm A,Whitney SSm B,Helvetica,Arial,sans-serif;
+  font-weight: 100;
+}
+
+#content {
+  position: absolute;
+  left: 250px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  overflow: auto;
+}
+
+.content_description {
+  margin-left: 10px;
+  color: #4c555a;
+}
+
+.content_box {
+  margin: 20px;
+  padding: 20px;
+  background-color: #fafcfc;
+  border: 1px solid #f0f4f7;
+  max-width: 650px;
+}
+
+.content_box h7 {
+  font-size: 14px;
+  color: #ffae54;
+  font-weight: 600;
+  -webkit-margin-before: 0px;
+  text-transform: lowercase;
+  font-family: monospace;
+}
+
+.content_box h5 {
+  font-size: 32px;
+  font-weight: 500;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f0f4f7;
+  color: #0099e5;
+  -webkit-margin-before: 5px;
+  -webkit-margin-after: 5px;
+}
+
+.content_subheader {
+  font-weight: 500;
+  color: #939da3;
+}
+
+.section_full {
+  font-size: 14px;
+  color: #4c555a;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #E1E8F0;
+}
+
+.section_title {
+  flex-direction: column;
+  display: flex;
+  width: 100px;
+  flex-shrink: 0;
+  text-align: right;
+  color: #292e31;
+  margin-right: 20px;
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
+.section_subtitle {
+  color: #ffae54;
+  font-size: 12px;
+  text-align: right;
+}
+
+.optional {
+  color: #939da3;
+  font-size: 12px;
+  text-align: right;
+}
+
+.section_type {
+  width: 150px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.section_desc {
+  flex-grow: 1;
+  min-width: 250px;
+}
+
+.content_box h6 {
+  color: #939da3;
+  border-bottom: 1px solid #e1e8ed;
+  -webkit-margin-after: 5px;
+}
+
+.section_full h5 {
+  color: #939da3;
+}
+
+#sidebar_title {
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f0f4f7;
+  color: #0099e5;
+}
+
+.sidebar_nav {
+  padding: 0 20px 4px;
+  display: block;
+  color: #4c555a;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.sidebar_nav:hover {
+  color: #0099e5;
+}
+
+h5 {
+  color: #939da3;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-transform: uppercase;
+  -webkit-margin-after: 5px;
+}
+
+.source_line {
+  color: #e1e8ed;
+  font-size: 12px;
+  font-family: monospace;
+  text-align: right;
+}
+
+.source_line:hover {
+  color: black;
+}
+
+body {
+  margin: 0px;
+}
+#colors {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 110%;
+  overflow-x: hidden;
+}
+
+.color_block {
+  width: 20vw;
+  height: 20vw;
+  display: block;
+  color: #ffffff;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.color_name {
+  mix-blend-mode: exclusion;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-family: sans-serif;
+}
+
+#color_title {
+  border-bottom: 1px solid #939da3;
+  background-color: #fafcfc;
+  padding-left: 40px;
+  font-size: 22px;
+  font-weight: 500;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.checkerBoard {
+    background-image:
+      -moz-linear-gradient(45deg, #000 25%, transparent 25%),
+      -moz-linear-gradient(-45deg, #000 25%, transparent 25%),
+      -moz-linear-gradient(45deg, transparent 75%, #000 75%),
+      -moz-linear-gradient(-45deg, transparent 75%, #000 75%);
+    background-image:
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #000), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #000), color-stop(.25, transparent)),
+      -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #000)),
+      -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #000));
+
+    -moz-background-size:10vw 10vw;
+    background-size:10vw 10vw;
+    -webkit-background-size:10.1vw 10.1vw; /* override value for shitty webkit */
+
+    background-position:0vw 0vw, 5vw 0vw, 5vw -5vw, 0vw 5vw;
+}

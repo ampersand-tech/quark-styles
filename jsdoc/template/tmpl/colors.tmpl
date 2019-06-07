@@ -1,0 +1,29 @@
+<?js
+  var data = obj[0] || { properties: [] };
+?>
+<head>
+  <link type="text/css" rel="stylesheet" href="styles/style.css">
+</head>
+<body class="checkerBoard">
+
+<div id="color_title">Color Constants</div>
+<div id="colors">
+<?js
+  for (var i=0;i<data.properties.length;i++) {
+    var color=data.properties[i].defaultvalue.slice(0,7);
+    var op=data.properties[i].defaultvalue.slice(8);
+  ?>
+    <div class="color_block" style="background-color:<?js=color?>;opacity:<?js=op?>">
+      <div class="color_name">
+        <div><?js=data.properties[i].name?></div>
+        <div><?js=data.properties[i].color?></div>
+        <?js if (op !== 1) {?>
+          <div>opacity <?js=op?></div>
+        <?js}?>
+      </div>
+    </div>
+  <?js
+  }
+?>
+</div>
+</body>
