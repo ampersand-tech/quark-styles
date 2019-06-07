@@ -1,0 +1,45 @@
+<?js
+    var data = obj;
+?>
+<head>
+  <link type="text/css" rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <div id="sidebar" class='menu'>
+    <div id="sidebar_title">Quark Style Guide</div>
+    <nav class="sidebar_nav">
+      <h5>Quark Classes</h5>
+      <?js for (var i=0;i<data.nav.classes.length;i++) {
+        ?>
+          <a href="<?js='#'+data.nav.classes[i]?>"><li class="sidebar_nav"> <?js=data.nav.classes[i] ?> </li></a>
+        <?js
+      } ?>
+      <h5>Quark Styles</h5>
+      <?js for (var i=0;i<data.nav.styles.length;i++) {
+        ?>
+          <a href="<?js='#'+data.nav.styles[i]?>"><li class="sidebar_nav"> <?js=data.nav.styles[i] ?> </li></a>
+        <?js
+      } ?>
+      <h5>Lookup Tables</h5>
+      <?js for (var i=0;i<data.nav.enums.length;i++) {
+        ?>
+          <a href="<?js='#'+data.nav.enums[i]?>"><li class="sidebar_nav"> <?js=data.nav.enums[i] ?> </li></a>
+        <?js
+      } ?>
+    </nav>
+  </div>
+  <div id="content">
+    <h2>Quark Classes</h2>
+    <?js for(var c=0;c<data.content.classes.length;c++) {
+      ?> <?js= data.content.classes[c] ?> <?js
+    } ?>
+    <h2>Quark Styles</h2>
+    <?js for(var c=0;c<data.content.styles.length;c++) {
+      ?> <?js= data.content.styles[c] ?> <?js
+    } ?>
+    <h2>Lookup Tables</h2>
+    <?js for(var c=0;c<data.content.enums.length;c++) {
+      ?> <?js= data.content.enums[c] ?> <?js
+    } ?>
+  </div>
+</body>

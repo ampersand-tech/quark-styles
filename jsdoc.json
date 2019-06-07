@@ -1,0 +1,18 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc","closure"]
+  },
+  "source": {
+    "include": ["dist/quarkStyles.js"]
+  },
+  "plugins": ["jsdoc/qsParser"],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  },
+  "opts": {
+    "template": "jsdoc/template",
+    "destination": "./docs"
+  }
+}

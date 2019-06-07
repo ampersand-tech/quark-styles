@@ -1,65 +1,6134 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <title>JSDoc: Home</title>
-
-    <script src="scripts/prettify/prettify.js"> </script>
-    <script src="scripts/prettify/lang-css.js"> </script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
-    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+  <link type="text/css" rel="stylesheet" href="styles/style.css">
 </head>
-
 <body>
+  <div id="sidebar" class='menu'>
+    <div id="sidebar_title">Quark Style Guide</div>
+    <nav class="sidebar_nav">
+      <h5>Quark Classes</h5>
+      
+          <a href="#Align-Items"><li class="sidebar_nav"> Align-Items </li></a>
+        
+          <a href="#Align-Self"><li class="sidebar_nav"> Align-Self </li></a>
+        
+          <a href="#Animation"><li class="sidebar_nav"> Animation </li></a>
+        
+          <a href="#AutoGrid"><li class="sidebar_nav"> AutoGrid </li></a>
+        
+          <a href="#Background-Image"><li class="sidebar_nav"> Background-Image </li></a>
+        
+          <a href="#Background-Position"><li class="sidebar_nav"> Background-Position </li></a>
+        
+          <a href="#Background-Repeat"><li class="sidebar_nav"> Background-Repeat </li></a>
+        
+          <a href="#Background-Size"><li class="sidebar_nav"> Background-Size </li></a>
+        
+          <a href="#Blur"><li class="sidebar_nav"> Blur </li></a>
+        
+          <a href="#Border"><li class="sidebar_nav"> Border </li></a>
+        
+          <a href="#Border-Dash"><li class="sidebar_nav"> Border-Dash </li></a>
+        
+          <a href="#Border-Radius"><li class="sidebar_nav"> Border-Radius </li></a>
+        
+          <a href="#Bottom"><li class="sidebar_nav"> Bottom </li></a>
+        
+          <a href="#Box-Shadow"><li class="sidebar_nav"> Box-Shadow </li></a>
+        
+          <a href="#Colors"><li class="sidebar_nav"> Colors </li></a>
+        
+          <a href="#Cursor"><li class="sidebar_nav"> Cursor </li></a>
+        
+          <a href="#Display"><li class="sidebar_nav"> Display </li></a>
+        
+          <a href="#Drop-Shadow"><li class="sidebar_nav"> Drop-Shadow </li></a>
+        
+          <a href="#flex-"><li class="sidebar_nav"> flex- </li></a>
+        
+          <a href="#flex-basis"><li class="sidebar_nav"> flex-basis </li></a>
+        
+          <a href="#flex-direction"><li class="sidebar_nav"> flex-direction </li></a>
+        
+          <a href="#flex-grow"><li class="sidebar_nav"> flex-grow </li></a>
+        
+          <a href="#flex-shrink"><li class="sidebar_nav"> flex-shrink </li></a>
+        
+          <a href="#Flex-Wrap"><li class="sidebar_nav"> Flex-Wrap </li></a>
+        
+          <a href="#Font-Size"><li class="sidebar_nav"> Font-Size </li></a>
+        
+          <a href="#Font-Style"><li class="sidebar_nav"> Font-Style </li></a>
+        
+          <a href="#Font-Weight"><li class="sidebar_nav"> Font-Weight </li></a>
+        
+          <a href="#Height"><li class="sidebar_nav"> Height </li></a>
+        
+          <a href="#Hyphens"><li class="sidebar_nav"> Hyphens </li></a>
+        
+          <a href="#Invert"><li class="sidebar_nav"> Invert </li></a>
+        
+          <a href="#Invert"><li class="sidebar_nav"> Invert </li></a>
+        
+          <a href="#Justify-Content"><li class="sidebar_nav"> Justify-Content </li></a>
+        
+          <a href="#Justify-Self"><li class="sidebar_nav"> Justify-Self </li></a>
+        
+          <a href="#Left"><li class="sidebar_nav"> Left </li></a>
+        
+          <a href="#Letter-Spacing"><li class="sidebar_nav"> Letter-Spacing </li></a>
+        
+          <a href="#Line-Height"><li class="sidebar_nav"> Line-Height </li></a>
+        
+          <a href="#Line-Limit"><li class="sidebar_nav"> Line-Limit </li></a>
+        
+          <a href="#Margins"><li class="sidebar_nav"> Margins </li></a>
+        
+          <a href="#object-fit"><li class="sidebar_nav"> object-fit </li></a>
+        
+          <a href="#opacity"><li class="sidebar_nav"> opacity </li></a>
+        
+          <a href="#order"><li class="sidebar_nav"> order </li></a>
+        
+          <a href="#Order"><li class="sidebar_nav"> Order </li></a>
+        
+          <a href="#Overflow"><li class="sidebar_nav"> Overflow </li></a>
+        
+          <a href="#Padding"><li class="sidebar_nav"> Padding </li></a>
+        
+          <a href="#pointer-events"><li class="sidebar_nav"> pointer-events </li></a>
+        
+          <a href="#position"><li class="sidebar_nav"> position </li></a>
+        
+          <a href="#Resize"><li class="sidebar_nav"> Resize </li></a>
+        
+          <a href="#Right"><li class="sidebar_nav"> Right </li></a>
+        
+          <a href="#Text-Align"><li class="sidebar_nav"> Text-Align </li></a>
+        
+          <a href="#Text-Decoration"><li class="sidebar_nav"> Text-Decoration </li></a>
+        
+          <a href="#text-indent"><li class="sidebar_nav"> text-indent </li></a>
+        
+          <a href="#text-overflow"><li class="sidebar_nav"> text-overflow </li></a>
+        
+          <a href="#Text-Shadow"><li class="sidebar_nav"> Text-Shadow </li></a>
+        
+          <a href="#text-transform"><li class="sidebar_nav"> text-transform </li></a>
+        
+          <a href="#Top"><li class="sidebar_nav"> Top </li></a>
+        
+          <a href="#Transform-Origin"><li class="sidebar_nav"> Transform-Origin </li></a>
+        
+          <a href="#Transform-Rotate"><li class="sidebar_nav"> Transform-Rotate </li></a>
+        
+          <a href="#Transform-Scale"><li class="sidebar_nav"> Transform-Scale </li></a>
+        
+          <a href="#Transform-skew-X"><li class="sidebar_nav"> Transform-skew-X </li></a>
+        
+          <a href="#Transform-translate-X"><li class="sidebar_nav"> Transform-translate-X </li></a>
+        
+          <a href="#Transform-translate-Y"><li class="sidebar_nav"> Transform-translate-Y </li></a>
+        
+          <a href="#Transition"><li class="sidebar_nav"> Transition </li></a>
+        
+          <a href="#User-Select"><li class="sidebar_nav"> User-Select </li></a>
+        
+          <a href="#Vertical-Align"><li class="sidebar_nav"> Vertical-Align </li></a>
+        
+          <a href="#visibility"><li class="sidebar_nav"> visibility </li></a>
+        
+          <a href="#Whitespace"><li class="sidebar_nav"> Whitespace </li></a>
+        
+          <a href="#Width"><li class="sidebar_nav"> Width </li></a>
+        
+          <a href="#Word-Spacing"><li class="sidebar_nav"> Word-Spacing </li></a>
+        
+          <a href="#Z-Index"><li class="sidebar_nav"> Z-Index </li></a>
+        
+      <h5>Quark Styles</h5>
+      
+          <a href="#Center"><li class="sidebar_nav"> Center </li></a>
+        
+          <a href="#cover"><li class="sidebar_nav"> cover </li></a>
+        
+          <a href="#fullSize"><li class="sidebar_nav"> fullSize </li></a>
+        
+      <h5>Lookup Tables</h5>
+      
+          <a href="#ALIGNITEMS_LOOKUP"><li class="sidebar_nav"> ALIGNITEMS_LOOKUP </li></a>
+        
+          <a href="#ALIGNSELF_LOOKUP"><li class="sidebar_nav"> ALIGNSELF_LOOKUP </li></a>
+        
+          <a href="#BACKGROUND_POS"><li class="sidebar_nav"> BACKGROUND_POS </li></a>
+        
+          <a href="#BACKGROUND_REPEAT"><li class="sidebar_nav"> BACKGROUND_REPEAT </li></a>
+        
+          <a href="#COLOR_OPTIONS"><li class="sidebar_nav"> COLOR_OPTIONS </li></a>
+        
+          <a href="#CORNER_LOOKUP"><li class="sidebar_nav"> CORNER_LOOKUP </li></a>
+        
+          <a href="#CURSOR_LOOKUP"><li class="sidebar_nav"> CURSOR_LOOKUP </li></a>
+        
+          <a href="#DISPLAY_LOOKUP"><li class="sidebar_nav"> DISPLAY_LOOKUP </li></a>
+        
+          <a href="#FLEXDIRECTION_LOOKUP"><li class="sidebar_nav"> FLEXDIRECTION_LOOKUP </li></a>
+        
+          <a href="#FLEXWRAP_LOOKUP"><li class="sidebar_nav"> FLEXWRAP_LOOKUP </li></a>
+        
+          <a href="#FONTSTYLE_LOOKUP"><li class="sidebar_nav"> FONTSTYLE_LOOKUP </li></a>
+        
+          <a href="#HYPHENS_LOOKUP"><li class="sidebar_nav"> HYPHENS_LOOKUP </li></a>
+        
+          <a href="#JUSTIFYCONTENT_LOOKUP"><li class="sidebar_nav"> JUSTIFYCONTENT_LOOKUP </li></a>
+        
+          <a href="#JUSTIFYSELF_LOOKUP"><li class="sidebar_nav"> JUSTIFYSELF_LOOKUP </li></a>
+        
+          <a href="#ORIGIN_LOOKUP"><li class="sidebar_nav"> ORIGIN_LOOKUP </li></a>
+        
+          <a href="#OVERFLOW_LOOKUP"><li class="sidebar_nav"> OVERFLOW_LOOKUP </li></a>
+        
+          <a href="#POINTEREVENTS_LOOKUP"><li class="sidebar_nav"> POINTEREVENTS_LOOKUP </li></a>
+        
+          <a href="#POS_LOOKUP"><li class="sidebar_nav"> POS_LOOKUP </li></a>
+        
+          <a href="#POSTION_LOOKUP"><li class="sidebar_nav"> POSTION_LOOKUP </li></a>
+        
+          <a href="#RESIZE_LOOKUP"><li class="sidebar_nav"> RESIZE_LOOKUP </li></a>
+        
+          <a href="#TEXTALIGN_LOOKUP"><li class="sidebar_nav"> TEXTALIGN_LOOKUP </li></a>
+        
+          <a href="#TEXTDECORATION_LOOKUP"><li class="sidebar_nav"> TEXTDECORATION_LOOKUP </li></a>
+        
+          <a href="#TEXTOVERFLOW_LOOKUP"><li class="sidebar_nav"> TEXTOVERFLOW_LOOKUP </li></a>
+        
+          <a href="#TEXTTRANSFORM_LOOKUP"><li class="sidebar_nav"> TEXTTRANSFORM_LOOKUP </li></a>
+        
+          <a href="#TRANSITION_LOOKUP"><li class="sidebar_nav"> TRANSITION_LOOKUP </li></a>
+        
+          <a href="#VERTICALALIGN_LOOKUP"><li class="sidebar_nav"> VERTICALALIGN_LOOKUP </li></a>
+        
+          <a href="#VISIBILITY_LOOKUP"><li class="sidebar_nav"> VISIBILITY_LOOKUP </li></a>
+        
+          <a href="#WHITESPACE_LOOKUP"><li class="sidebar_nav"> WHITESPACE_LOOKUP </li></a>
+        
+          <a href="#WORDBREAK_LOOKUP"><li class="sidebar_nav"> WORDBREAK_LOOKUP </li></a>
+        
+          <a href="#WORDWRAP_LOOKUP"><li class="sidebar_nav"> WORDWRAP_LOOKUP </li></a>
+        
+    </nav>
+  </div>
+  <div id="content">
+    <h2>Quark Classes</h2>
+     
+<a name="Align-Items"></a>
+<div class="content_box">
+  <h5>
+    Align-Items
+    <h7>ai-c, ai-fs, ai-fe, ai-b, ai-s</h7>
+  </h5>
 
-<div id="main">
-
-    <h1 class="page-title">Home</h1>
-
+  <div class="content_description">
     
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">ai-[direction]</div>
+    </div>
+  
 
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            direction
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
 
+          </div>
+          <div class="section_type">
+            ALIGNITEMS_LOOKUP
 
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 957</div>
+  
+</div>  
+<a name="Align-Self"></a>
+<div class="content_box">
+  <h5>
+    Align-Self
+    <h7>as-c, as-b, as-fs, as-fe, as-s</h7>
+  </h5>
+
+  <div class="content_description">
     
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">as-[direction]</div>
+    </div>
+  
 
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            direction
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
 
-    <h3> </h3>
+          </div>
+          <div class="section_type">
+            ALIGNSELF_LOOKUP
 
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1016</div>
+  
+</div>  
+<a name="Animation"></a>
+<div class="content_box">
+  <h5>
+    Animation
+    <h7>anim-</h7>
+  </h5>
 
-
-
-
-
-
-
-
-
+  <div class="content_description">
     
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">anim-[AnimationName]-[duration]</div>
+    </div>
+  
 
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            AnimationName
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
 
+          </div>
+          <div class="section_type">
+            string
 
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            duration
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
 
+          </div>
+          <div class="section_type">
+            number
 
+          </div>
+          <div class="section_desc">
+            in milliseconds
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1291</div>
+  
+</div>  
+<a name="AutoGrid"></a>
+<div class="content_box">
+  <h5>
+    AutoGrid
+    <h7>autogrid-160</h7>
+  </h5>
 
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">autogrid-[cellWidth]</div>
+    </div>
+  
 
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            cellWidth
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
 
+          </div>
+          <div class="section_type">
+            number
 
-</div>
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 890</div>
+  
+</div>  
+<a name="Background-Image"></a>
+<div class="content_box">
+  <h5>
+    Background-Image
+    <h7>bgimg-templateImages/green_back.png</h7>
+  </h5>
 
-<nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ALIGNITEMS_LOOKUP">ALIGNITEMS_LOOKUP</a></li><li><a href="global.html#ALIGNSELF_LOOKUP">ALIGNSELF_LOOKUP</a></li><li><a href="global.html#BACKGROUND_POS">BACKGROUND_POS</a></li><li><a href="global.html#BACKGROUND_REPEAT">BACKGROUND_REPEAT</a></li><li><a href="global.html#COLOR_OPTIONS">COLOR_OPTIONS</a></li><li><a href="global.html#CORNER_LOOKUP">CORNER_LOOKUP</a></li><li><a href="global.html#CURSOR_LOOKUP">CURSOR_LOOKUP</a></li><li><a href="global.html#DISPLAY_LOOKUP">DISPLAY_LOOKUP</a></li><li><a href="global.html#FLEXDIRECTION_LOOKUP">FLEXDIRECTION_LOOKUP</a></li><li><a href="global.html#FLEXWRAP_LOOKUP">FLEXWRAP_LOOKUP</a></li><li><a href="global.html#FONTSTYLE_LOOKUP">FONTSTYLE_LOOKUP</a></li><li><a href="global.html#HYPHENS_LOOKUP">HYPHENS_LOOKUP</a></li><li><a href="global.html#JUSTIFYCONTENT_LOOKUP">JUSTIFYCONTENT_LOOKUP</a></li><li><a href="global.html#JUSTIFYSELF_LOOKUP">JUSTIFYSELF_LOOKUP</a></li><li><a href="global.html#ORIGIN_LOOKUP">ORIGIN_LOOKUP</a></li><li><a href="global.html#OVERFLOW_LOOKUP">OVERFLOW_LOOKUP</a></li><li><a href="global.html#POINTEREVENTS_LOOKUP">POINTEREVENTS_LOOKUP</a></li><li><a href="global.html#POS_LOOKUP">POS_LOOKUP</a></li><li><a href="global.html#POSTION_LOOKUP">POSTION_LOOKUP</a></li><li><a href="global.html#RESIZE_LOOKUP">RESIZE_LOOKUP</a></li><li><a href="global.html#scale">scale</a></li><li><a href="global.html#TEXTALIGN_LOOKUP">TEXTALIGN_LOOKUP</a></li><li><a href="global.html#TEXTDECORATION_LOOKUP">TEXTDECORATION_LOOKUP</a></li><li><a href="global.html#TEXTOVERFLOW_LOOKUP">TEXTOVERFLOW_LOOKUP</a></li><li><a href="global.html#TEXTTRANSFORM_LOOKUP">TEXTTRANSFORM_LOOKUP</a></li><li><a href="global.html#TRANSITION_LOOKUP">TRANSITION_LOOKUP</a></li><li><a href="global.html#USERSELECT_LOOKUP">USERSELECT_LOOKUP</a></li><li><a href="global.html#VERTICALALIGN_LOOKUP">VERTICALALIGN_LOOKUP</a></li><li><a href="global.html#VISIBILITY_LOOKUP">VISIBILITY_LOOKUP</a></li><li><a href="global.html#WHITESPACE_LOOKUP">WHITESPACE_LOOKUP</a></li><li><a href="global.html#WORDBREAK_LOOKUP">WORDBREAK_LOOKUP</a></li><li><a href="global.html#WORDWRAP_LOOKUP">WORDWRAP_LOOKUP</a></li></ul>
-</nav>
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">bgimg-[url]</div>
+    </div>
+  
 
-<br class="clear">
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            url
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
 
-<footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.2</a> on Thu Jun 06 2019 01:38:49 GMT-0700 (Pacific Daylight Time)
-</footer>
+          </div>
+          <div class="section_type">
+            string
 
-<script> prettyPrint(); </script>
-<script src="scripts/linenumber.js"> </script>
+          </div>
+          <div class="section_desc">
+            for image
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1077</div>
+  
+</div>  
+<a name="Background-Position"></a>
+<div class="content_box">
+  <h5>
+    Background-Position
+    <h7>bgpos-c, bgpos-t, bgpos-b, bgpos-l, bgpos-r, bgpos-0, bgpos-1, bgpos-2, bgpos-3</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">bgpos-[position]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            position
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            BACKGROUND_POS_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1058</div>
+  
+</div>  
+<a name="Background-Repeat"></a>
+<div class="content_box">
+  <h5>
+    Background-Repeat
+    <h7>bgrepeat-r, bgrepeat-n, bgrepeat-x, bgrepeat-y</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">bgrepeat-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            BACKGROUND_REPEAT
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1093</div>
+  
+</div>  
+<a name="Background-Size"></a>
+<div class="content_box">
+  <h5>
+    Background-Size
+    <h7>bgsize-20%, bgsize-cover, bgsize-contain</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">bgsize-[size]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number, cover, contain
+
+          </div>
+          <div class="section_desc">
+            in pixels. Otherwise specify units. You may also specify cover or contain
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1067</div>
+  
+</div>  
+<a name="Blur"></a>
+<div class="content_box">
+  <h5>
+    Blur
+    <h7>blur-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">blur-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            in pixles, otherwise specify units.
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1522</div>
+  
+</div>  
+<a name="Border"></a>
+<div class="content_box">
+  <h5>
+    Border
+    <h7>b, b-l, b-r, b-t, b-b, b-x, b-y</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">b-[direction]-value</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            direction
+            
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            POS_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            width
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 348</div>
+  
+</div>  
+<a name="Border-Dash"></a>
+<div class="content_box">
+  <h5>
+    Border-Dash
+    <h7>bd-, bd-l-, bd-r-, bd-t-, bd-b-, bd-x-, bd-y-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">bd-[direction]-value</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            direction
+            
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            POS_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            width
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 360</div>
+  
+</div>  
+<a name="Border-Radius"></a>
+<div class="content_box">
+  <h5>
+    Border-Radius
+    <h7>br-, br-t-, br-b-, br-l-, br-r-, br-tl-, br-tr-, br-bl-, br-br-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">br-[side]-[radius]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            side
+            
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            CORNER_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            radius
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 373</div>
+  
+</div>  
+<a name="Bottom"></a>
+<div class="content_box">
+  <h5>
+    Bottom
+    <h7>bottom-0</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">bottom-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            in pixels, or specifiy units.
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 287</div>
+  
+</div>  
+<a name="Box-Shadow"></a>
+<div class="content_box">
+  <h5>
+    Box-Shadow
+    <h7>bxshdw-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">bxshdw-[offsetY]-[offsetX]-[blur]-[radius]-[color]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            offsetY
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            offsetX
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            blur
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            radius
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            color
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            color
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 395</div>
+  
+</div>  
+<a name="Colors"></a>
+<div class="content_box">
+  <h5>
+    Colors
+    <h7>c-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">c-[color]-[option1]-[option2]...</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            color
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            <a href="/docs/colors.html">COLOR_CONSTANT</a>, HexColor
+
+          </div>
+          <div class="section_desc">
+            use predefined color, or hex value
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            options
+            
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            COLOR_OPTIONS
+
+          </div>
+          <div class="section_desc">
+            use many
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1357</div>
+  
+</div>  
+<a name="Cursor"></a>
+<div class="content_box">
+  <h5>
+    Cursor
+    <h7>cur-p, cur-a, cur-d, cur-t</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">cur-[property]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            property
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            CURSOR_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1215</div>
+  
+</div>  
+<a name="Display"></a>
+<div class="content_box">
+  <h5>
+    Display
+    <h7>d-b, d-n, d-i, d-ib, d-f</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">d-[display]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            display
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            DISPLAY_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 266</div>
+  
+</div>  
+<a name="Drop-Shadow"></a>
+<div class="content_box">
+  <h5>
+    Drop-Shadow
+    <h7>dropshdw-</h7>
+  </h5>
+
+  <div class="content_description">
+    Used for SVGs
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">dropshdw-[offsetX]-[offsetY]-[blur]-[color]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            offsetX
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            offsetY
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            blur
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            radius
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            color
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            color
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 434</div>
+  
+</div>  
+<a name="flex-"></a>
+<div class="content_box">
+  <h5>
+    flex-
+    <h7>flx-,</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">flx-[grow]-[shrink]-[basis]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            grow
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            shrink
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            basis
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            in pixels, or specify units
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 814</div>
+  
+</div>  
+<a name="flex-basis"></a>
+<div class="content_box">
+  <h5>
+    flex-basis
+    <h7>flxb-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">flxb-[weight]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            weight
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 863</div>
+  
+</div>  
+<a name="flex-direction"></a>
+<div class="content_box">
+  <h5>
+    flex-direction
+    <h7>flxd-c, flxd-r, flxd-cr, flxd-rr</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">flxd-[property]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            property
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            FLEXDIRECTION_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 834</div>
+  
+</div>  
+<a name="flex-grow"></a>
+<div class="content_box">
+  <h5>
+    flex-grow
+    <h7>flxg-</h7>
+  </h5>
+
+  <div class="content_description">
+    note: also sets flexBasis to 0px
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">flxg-[weight]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            weight
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 843</div>
+  
+</div>  
+<a name="flex-shrink"></a>
+<div class="content_box">
+  <h5>
+    flex-shrink
+    <h7>flxs-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">flxs-[weight]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            weight
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 854</div>
+  
+</div>  
+<a name="Flex-Wrap"></a>
+<div class="content_box">
+  <h5>
+    Flex-Wrap
+    <h7>flxw-n, flxw-w, flxw-r</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">flex-[wrap]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            wrap
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            FLEXWRAP_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 880</div>
+  
+</div>  
+<a name="Font-Size"></a>
+<div class="content_box">
+  <h5>
+    Font-Size
+    <h7>fs-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">fs-[size]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            set in px. Add suffix to override (ie: fs-10pt)
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 596</div>
+  
+</div>  
+<a name="Font-Style"></a>
+<div class="content_box">
+  <h5>
+    Font-Style
+    <h7>fy-i, fy-n</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">fy-[style]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            style
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            FONTSTYLE_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 613</div>
+  
+</div>  
+<a name="Font-Weight"></a>
+<div class="content_box">
+  <h5>
+    Font-Weight
+    <h7>fw-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">fw-[size]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 575</div>
+  
+</div>  
+<a name="Height"></a>
+<div class="content_box">
+  <h5>
+    Height
+    <h7>h- h-n h-x</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">h-[restriction]-[size]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            restriction
+            
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            MIN_MAX
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 152</div>
+  
+</div>  
+<a name="Hyphens"></a>
+<div class="content_box">
+  <h5>
+    Hyphens
+    <h7>hyp-n, hyp-m, hyp-a</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">hyp-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            type
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            HYPHENS_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 753</div>
+  
+</div>  
+<a name="Invert"></a>
+<div class="content_box">
+  <h5>
+    Invert
+    <h7>fadeIn-0.5</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">fadeIn-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            time
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            in s to fade in opacity
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1588</div>
+  
+</div>  
+<a name="Invert"></a>
+<div class="content_box">
+  <h5>
+    Invert
+    <h7>invert-40%</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">invert-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            amount
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            of color to invert in percentage,
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1534</div>
+  
+</div>  
+<a name="Justify-Content"></a>
+<div class="content_box">
+  <h5>
+    Justify-Content
+    <h7>jc-c, jc-fs, jc-fe, jc-sa, jc-sb</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">jc-[direction]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            direction
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            JUSTIFYCONTENT_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 976</div>
+  
+</div>  
+<a name="Justify-Self"></a>
+<div class="content_box">
+  <h5>
+    Justify-Self
+    <h7>js-c, js-fs, js-fe, js-sa, js-sb</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">js-[direction]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            direction
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            JUSTIFYSELF_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 996</div>
+  
+</div>  
+<a name="Left"></a>
+<div class="content_box">
+  <h5>
+    Left
+    <h7>left-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">left-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            in pixels, or specifiy units.
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 297</div>
+  
+</div>  
+<a name="Letter-Spacing"></a>
+<div class="content_box">
+  <h5>
+    Letter-Spacing
+    <h7>ls-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">ls-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            in pixels, or specify another unit
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 639</div>
+  
+</div>  
+<a name="Line-Height"></a>
+<div class="content_box">
+  <h5>
+    Line-Height
+    <h7>lh-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">lh-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 668</div>
+  
+</div>  
+<a name="Line-Limit"></a>
+<div class="content_box">
+  <h5>
+    Line-Limit
+    <h7>ll-</h7>
+  </h5>
+
+  <div class="content_description">
+    WEBKIT ONLY!!!!! sets overflowY to hidden
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">ll-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 715</div>
+  
+</div>  
+<a name="Margins"></a>
+<div class="content_box">
+  <h5>
+    Margins
+    <h7>m-, m-l-, m-r-, m-t-, m-b-, m-x-, m-y-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">m-[direction]-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            direction
+            
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            POS_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            Set direction, leave blank for all directions
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            value in px, or sepcify %, or em
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 117</div>
+  
+</div>  
+<a name="object-fit"></a>
+<div class="content_box">
+  <h5>
+    object-fit
+    <h7>of-contain, of-scaleDown</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">of-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            fill, contain, cover, none, scaleDown
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 327</div>
+  
+</div>  
+<a name="opacity"></a>
+<div class="content_box">
+  <h5>
+    opacity
+    <h7>op-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">op-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            value between 1.0 (fully opaque) and 0.0 (Fully transparent)
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1130</div>
+  
+</div>  
+<a name="order"></a>
+<div class="content_box">
+  <h5>
+    order
+    <h7>order-5 order--5</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">order-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            sorting
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            order
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1025</div>
+  
+</div>  
+<a name="Order"></a>
+<div class="content_box">
+  <h5>
+    Order
+    <h7>ord-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">ord-[order]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            order
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 922</div>
+  
+</div>  
+<a name="Overflow"></a>
+<div class="content_box">
+  <h5>
+    Overflow
+    <h7>o-v, o-h, o-s, o-a, o-x-v, o-x-h, o-x-s, o-x-a, o-y-v, o-y-h, o-y-s, o-y-a, o-s-nt</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">o-[direction]-[type]-[nt]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            direction
+            
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            string
+
+          </div>
+          <div class="section_desc">
+            x or y
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            type
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            OVERFLOW_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            nt
+            
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            string
+
+          </div>
+          <div class="section_desc">
+            add -nt to set no touch in overflow scroll
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 214</div>
+  
+</div>  
+<a name="Padding"></a>
+<div class="content_box">
+  <h5>
+    Padding
+    <h7>p, p-l, p-r, p-t, p-b, p-x, p-y</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">p-[direction]-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            direction
+            
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            POS_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 134</div>
+  
+</div>  
+<a name="pointer-events"></a>
+<div class="content_box">
+  <h5>
+    pointer-events
+    <h7>pe-a, pe-n, pe-vp, pe-vs, pe-v, pe-p, pe-f, pe-s, pe-all, pe-i</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">pe-</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            property
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            POINTEREVENTS_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1198</div>
+  
+</div>  
+<a name="position"></a>
+<div class="content_box">
+  <h5>
+    position
+    <h7>pos-a pos-r pos-s pos-f</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">pos-[position]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            position
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            POSITION_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 245</div>
+  
+</div>  
+<a name="Resize"></a>
+<div class="content_box">
+  <h5>
+    Resize
+    <h7>rs-v, rs-h, rs-b, rs-n</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">rs-[property]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            property
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            RESIZE_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1157</div>
+  
+</div>  
+<a name="Right"></a>
+<div class="content_box">
+  <h5>
+    Right
+    <h7>right-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">right-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            in pixels, or specifiy units.
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 307</div>
+  
+</div>  
+<a name="Text-Align"></a>
+<div class="content_box">
+  <h5>
+    Text-Align
+    <h7>ta-l, ta-r, ta-j, ta-c</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">ta-[direction]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            direction
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            TEXTALIGN_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 659</div>
+  
+</div>  
+<a name="Text-Decoration"></a>
+<div class="content_box">
+  <h5>
+    Text-Decoration
+    <h7>td-n, td-u, td-l</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">td-[decoration]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            decoration
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            TEXTDECORATION_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 630</div>
+  
+</div>  
+<a name="text-indent"></a>
+<div class="content_box">
+  <h5>
+    text-indent
+    <h7>ti-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">ti-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            in pixels, otherwise specify units.
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 762</div>
+  
+</div>  
+<a name="text-overflow"></a>
+<div class="content_box">
+  <h5>
+    text-overflow
+    <h7>tof-c, tof-e</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">tof-[property]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            property
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            TEXTOVERFLOW_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 776</div>
+  
+</div>  
+<a name="Text-Shadow"></a>
+<div class="content_box">
+  <h5>
+    Text-Shadow
+    <h7>txtshdw-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">txtshdw-[offsetX]-[offsetY]-[blur]-[color]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            offsetX
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            offsetY
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            blur
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            color
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            color
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 418</div>
+  
+</div>  
+<a name="text-transform"></a>
+<div class="content_box">
+  <h5>
+    text-transform
+    <h7>tt-u, tt-l, tt-c</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">tt-[property]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            property
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            TEXTTRANSFORM_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 793</div>
+  
+</div>  
+<a name="Top"></a>
+<div class="content_box">
+  <h5>
+    Top
+    <h7>top-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">top-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            in pixels, or specifiy units.
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 317</div>
+  
+</div>  
+<a name="Transform-Origin"></a>
+<div class="content_box">
+  <h5>
+    Transform-Origin
+    <h7>to-t, to-tl, to-tr, to-l, to-r, to-b, to-bl, to-br, to-c</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">to-[origin]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            origin
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            ORIGIN_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 494</div>
+  
+</div>  
+<a name="Transform-Rotate"></a>
+<div class="content_box">
+  <h5>
+    Transform-Rotate
+    <h7>tr-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">tr-[degrees]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            degrees
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 503</div>
+  
+</div>  
+<a name="Transform-Scale"></a>
+<div class="content_box">
+  <h5>
+    Transform-Scale
+    <h7>ts-1.4</h7>
+  </h5>
+
+  <div class="content_description">
+    uniform scaling only
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">ts-[x]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            x
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 463</div>
+  
+</div>  
+<a name="Transform-skew-X"></a>
+<div class="content_box">
+  <h5>
+    Transform-skew-X
+    <h7>tkx-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">tkx-[size]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 555</div>
+  
+</div>  
+<a name="Transform-translate-X"></a>
+<div class="content_box">
+  <h5>
+    Transform-translate-X
+    <h7>tx-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">tx-[size]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 522</div>
+  
+</div>  
+<a name="Transform-translate-Y"></a>
+<div class="content_box">
+  <h5>
+    Transform-translate-Y
+    <h7>ty-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">ty-[size]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 539</div>
+  
+</div>  
+<a name="Transition"></a>
+<div class="content_box">
+  <h5>
+    Transition
+    <h7>trans-bc, trans-bp, trans-bot, trans-col, trans-f, trans-fs, trans-fw, trans-ht, trans-l, trans-hx, trans-wx, trans-hn, trans-wn, trans-ml, trans-o, trans-r, trans-t, trans-v, trans-w, trans-tr, trans-none</h7>
+  </h5>
+
+  <div class="content_description">
+    implements ease
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">trans-[transition]-[duration]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            transition
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            TRANSITION_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            duration
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1266</div>
+  
+</div>  
+<a name="User-Select"></a>
+<div class="content_box">
+  <h5>
+    User-Select
+    <h7>us-n, us-t, us-a</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">us-[property]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            property
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            USERSELECT_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1174</div>
+  
+</div>  
+<a name="Vertical-Align"></a>
+<div class="content_box">
+  <h5>
+    Vertical-Align
+    <h7>va-b, va-s, va-p, va-m, va-t</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">va-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            VERTICALALIGN_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 196</div>
+  
+</div>  
+<a name="visibility"></a>
+<div class="content_box">
+  <h5>
+    visibility
+    <h7>vis-h, vis-n</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">vis-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            VISIBILITY_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1121</div>
+  
+</div>  
+<a name="Whitespace"></a>
+<div class="content_box">
+  <h5>
+    Whitespace
+    <h7>ws-p, ws-n</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">ws-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            WHITESPACE_LOOKUP
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 736</div>
+  
+</div>  
+<a name="Width"></a>
+<div class="content_box">
+  <h5>
+    Width
+    <h7>w- w-n w-x</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">w-[restriction]-[size]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            restriction
+            
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            MIN_MAX
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 145</div>
+  
+</div>  
+<a name="Word-Spacing"></a>
+<div class="content_box">
+  <h5>
+    Word-Spacing
+    <h7>wos-</h7>
+  </h5>
+
+  <div class="content_description">
+    
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">wos-[size]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            size
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            in pixles, or specifiy another unit
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 649</div>
+  
+</div>  
+<a name="Z-Index"></a>
+<div class="content_box">
+  <h5>
+    Z-Index
+    <h7>z-</h7>
+  </h5>
+
+  <div class="content_description">
+    DO NOT USE THIS! If you think you need to, you're wrong.
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">z-[value]</div>
+    </div>
+  
+
+  
+  
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            value
+            
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              
+
+          </div>
+          <div class="section_type">
+            number
+
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+    <div class="source_line">quarkStyles.js, line: 276</div>
+  
+</div> 
+    <h2>Quark Styles</h2>
+     
+<a name="Center"></a>
+<div class="content_box">
+  <h5>
+    Center
+    <h7>cc</h7>
+  </h5>
+
+  <div class="content_description">
+    sets AlignItem and JustifyContent to 'center'
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">cc</div>
+    </div>
+  
+
+  
+    <h6>PROPERTIES</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            alignItems:
+          </div>
+          <div class="section_desc">
+            center
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            jusityContent:
+          </div>
+          <div class="section_desc">
+            center
+          </div>
+        </div>
+      
+    </div>
+  
+  
+  
+    <div class="source_line">quarkStyles.js, line: 931</div>
+  
+</div>  
+<a name="cover"></a>
+<div class="content_box">
+  <h5>
+    cover
+    <h7>cover</h7>
+  </h5>
+
+  <div class="content_description">
+    Center, non-repeated, and covering. Most common background image set.
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">cover</div>
+    </div>
+  
+
+  
+    <h6>PROPERTIES</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            bgsize-cover:
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            bgpos-c:
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            bgrepeat-n:
+          </div>
+          <div class="section_desc">
+            
+          </div>
+        </div>
+      
+    </div>
+  
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1572</div>
+  
+</div>  
+<a name="fullSize"></a>
+<div class="content_box">
+  <h5>
+    fullSize
+    <h7>fullSize</h7>
+  </h5>
+
+  <div class="content_description">
+    To fill it's parent, sets all position properties to 0
+  </div>
+  
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full">fullSize</div>
+    </div>
+  
+
+  
+    <h6>PROPERTIES</h6>
+    <div class="content_section">
+      
+        <div class="section_full">
+          <div class="section_title">
+            top:
+          </div>
+          <div class="section_desc">
+            0
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            bottom:
+          </div>
+          <div class="section_desc">
+            0
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            left:
+          </div>
+          <div class="section_desc">
+            0
+          </div>
+        </div>
+      
+        <div class="section_full">
+          <div class="section_title">
+            right:
+          </div>
+          <div class="section_desc">
+            0
+          </div>
+        </div>
+      
+    </div>
+  
+  
+  
+    <div class="source_line">quarkStyles.js, line: 1555</div>
+  
+</div> 
+    <h2>Lookup Tables</h2>
+     
+<a name="ALIGNITEMS_LOOKUP" />
+<div class="content_box">
+  <h5>
+    ALIGNITEMS_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          c:
+        </div>
+        <div class="section_desc">
+          center
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fs:
+        </div>
+        <div class="section_desc">
+          flex-start
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fe:
+        </div>
+        <div class="section_desc">
+          flex-end
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          baseline
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          s:
+        </div>
+        <div class="section_desc">
+          stretch
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 950</div>
+  
+</div>  
+<a name="ALIGNSELF_LOOKUP" />
+<div class="content_box">
+  <h5>
+    ALIGNSELF_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          a:
+        </div>
+        <div class="section_desc">
+          auto
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fs:
+        </div>
+        <div class="section_desc">
+          flex-start
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fe:
+        </div>
+        <div class="section_desc">
+          flex-end
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          c:
+        </div>
+        <div class="section_desc">
+          center
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          baseline
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          s:
+        </div>
+        <div class="section_desc">
+          stretch
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 1008</div>
+  
+</div>  
+<a name="BACKGROUND_POS" />
+<div class="content_box">
+  <h5>
+    BACKGROUND_POS
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          c:
+        </div>
+        <div class="section_desc">
+          center
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          t:
+        </div>
+        <div class="section_desc">
+          top
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          bottom
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          l:
+        </div>
+        <div class="section_desc">
+          left
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          r:
+        </div>
+        <div class="section_desc">
+          right
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          0:
+        </div>
+        <div class="section_desc">
+          top left
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          1:
+        </div>
+        <div class="section_desc">
+          top right
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          2:
+        </div>
+        <div class="section_desc">
+          bottom right
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          3:
+        </div>
+        <div class="section_desc">
+          bottom left
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 1047</div>
+  
+</div>  
+<a name="BACKGROUND_REPEAT" />
+<div class="content_box">
+  <h5>
+    BACKGROUND_REPEAT
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          r:
+        </div>
+        <div class="section_desc">
+          repeat
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          no-repeat
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          x:
+        </div>
+        <div class="section_desc">
+          repeat-x
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          y:
+        </div>
+        <div class="section_desc">
+          repeat-y
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 1087</div>
+  
+</div>  
+<a name="COLOR_OPTIONS" />
+<div class="content_box">
+  <h5>
+    COLOR_OPTIONS
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          a:
+        </div>
+        <div class="section_desc">
+          alpha
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          d:
+        </div>
+        <div class="section_desc">
+          darken
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          l:
+        </div>
+        <div class="section_desc">
+          lighten
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fg:
+        </div>
+        <div class="section_desc">
+          color (forground)
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          bg:
+        </div>
+        <div class="section_desc">
+          backgrondColor
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          borderColor
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          bb:
+        </div>
+        <div class="section_desc">
+          borderBottomColor
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          bt:
+        </div>
+        <div class="section_desc">
+          borderTopColor
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          bl:
+        </div>
+        <div class="section_desc">
+          borderLeftColor
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          br:
+        </div>
+        <div class="section_desc">
+          borderRightColor
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          f:
+        </div>
+        <div class="section_desc">
+          fill
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          s:
+        </div>
+        <div class="section_desc">
+          stroke
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 1341</div>
+  
+</div>  
+<a name="CORNER_LOOKUP" />
+<div class="content_box">
+  <h5>
+    CORNER_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          t:
+        </div>
+        <div class="section_desc">
+          TopLeft & TopRight
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          BottomLeft & BottomRight
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          r:
+        </div>
+        <div class="section_desc">
+          TopRight & BottomRight
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          l:
+        </div>
+        <div class="section_desc">
+          TopLeft & BottomLeft
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          tl:
+        </div>
+        <div class="section_desc">
+          TopLeft
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          tr:
+        </div>
+        <div class="section_desc">
+          TopRight
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          bl:
+        </div>
+        <div class="section_desc">
+          BottomLeft
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          br:
+        </div>
+        <div class="section_desc">
+          BottomRight
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 75</div>
+  
+</div>  
+<a name="CURSOR_LOOKUP" />
+<div class="content_box">
+  <h5>
+    CURSOR_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          p:
+        </div>
+        <div class="section_desc">
+          pointer
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          a:
+        </div>
+        <div class="section_desc">
+          auto
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          d:
+        </div>
+        <div class="section_desc">
+          default
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          t:
+        </div>
+        <div class="section_desc">
+          text
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 1209</div>
+  
+</div>  
+<a name="DISPLAY_LOOKUP" />
+<div class="content_box">
+  <h5>
+    DISPLAY_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          block
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          none
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          i:
+        </div>
+        <div class="section_desc">
+          inline
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          ib:
+        </div>
+        <div class="section_desc">
+          inline-block
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          f:
+        </div>
+        <div class="section_desc">
+          flex
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          x:
+        </div>
+        <div class="section_desc">
+          box
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 258</div>
+  
+</div>  
+<a name="FLEXDIRECTION_LOOKUP" />
+<div class="content_box">
+  <h5>
+    FLEXDIRECTION_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          c:
+        </div>
+        <div class="section_desc">
+          column
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          cr:
+        </div>
+        <div class="section_desc">
+          column-reverse
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          r:
+        </div>
+        <div class="section_desc">
+          row
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          rr:
+        </div>
+        <div class="section_desc">
+          row-reverse
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 828</div>
+  
+</div>  
+<a name="FLEXWRAP_LOOKUP" />
+<div class="content_box">
+  <h5>
+    FLEXWRAP_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          nowrap
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          w:
+        </div>
+        <div class="section_desc">
+          wrap
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          r:
+        </div>
+        <div class="section_desc">
+          wrap-reverse
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 875</div>
+  
+</div>  
+<a name="FONTSTYLE_LOOKUP" />
+<div class="content_box">
+  <h5>
+    FONTSTYLE_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          normal
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          i:
+        </div>
+        <div class="section_desc">
+          italic
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 609</div>
+  
+</div>  
+<a name="HYPHENS_LOOKUP" />
+<div class="content_box">
+  <h5>
+    HYPHENS_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          none
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          m:
+        </div>
+        <div class="section_desc">
+          manual
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          a:
+        </div>
+        <div class="section_desc">
+          auto
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 748</div>
+  
+</div>  
+<a name="JUSTIFYCONTENT_LOOKUP" />
+<div class="content_box">
+  <h5>
+    JUSTIFYCONTENT_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          c:
+        </div>
+        <div class="section_desc">
+          center
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fs:
+        </div>
+        <div class="section_desc">
+          flex-start
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fe:
+        </div>
+        <div class="section_desc">
+          flex-end
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          sa:
+        </div>
+        <div class="section_desc">
+          space-around
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          sb:
+        </div>
+        <div class="section_desc">
+          space-between
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 969</div>
+  
+</div>  
+<a name="JUSTIFYSELF_LOOKUP" />
+<div class="content_box">
+  <h5>
+    JUSTIFYSELF_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          a:
+        </div>
+        <div class="section_desc">
+          auto
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fs:
+        </div>
+        <div class="section_desc">
+          flex-start
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fe:
+        </div>
+        <div class="section_desc">
+          flex-end
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          c:
+        </div>
+        <div class="section_desc">
+          center
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          baseline
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          s:
+        </div>
+        <div class="section_desc">
+          stretch
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 988</div>
+  
+</div>  
+<a name="ORIGIN_LOOKUP" />
+<div class="content_box">
+  <h5>
+    ORIGIN_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          t:
+        </div>
+        <div class="section_desc">
+          top
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          tl:
+        </div>
+        <div class="section_desc">
+          top left
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          tr:
+        </div>
+        <div class="section_desc">
+          top right
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          l:
+        </div>
+        <div class="section_desc">
+          left
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          r:
+        </div>
+        <div class="section_desc">
+          right
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          bottom
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          bl:
+        </div>
+        <div class="section_desc">
+          bottom left
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          br:
+        </div>
+        <div class="section_desc">
+          bottom right
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          c:
+        </div>
+        <div class="section_desc">
+          center
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 483</div>
+  
+</div>  
+<a name="OVERFLOW_LOOKUP" />
+<div class="content_box">
+  <h5>
+    OVERFLOW_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          v:
+        </div>
+        <div class="section_desc">
+          visible
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          h:
+        </div>
+        <div class="section_desc">
+          hidden
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          s:
+        </div>
+        <div class="section_desc">
+          scroll
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          a:
+        </div>
+        <div class="section_desc">
+          auto
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 208</div>
+  
+</div>  
+<a name="POINTEREVENTS_LOOKUP" />
+<div class="content_box">
+  <h5>
+    POINTEREVENTS_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          a:
+        </div>
+        <div class="section_desc">
+          auto
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          none
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          vp:
+        </div>
+        <div class="section_desc">
+          visiblePainted
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          vf:
+        </div>
+        <div class="section_desc">
+          visibleFill
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          vs:
+        </div>
+        <div class="section_desc">
+          visibleStroke
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          v:
+        </div>
+        <div class="section_desc">
+          visible
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          p:
+        </div>
+        <div class="section_desc">
+          painted
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          f:
+        </div>
+        <div class="section_desc">
+          fill
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          s:
+        </div>
+        <div class="section_desc">
+          stroke
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          all:
+        </div>
+        <div class="section_desc">
+          all
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          i:
+        </div>
+        <div class="section_desc">
+          inherit
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 1185</div>
+  
+</div>  
+<a name="POS_LOOKUP" />
+<div class="content_box">
+  <h5>
+    POS_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          l:
+        </div>
+        <div class="section_desc">
+          Left
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          r:
+        </div>
+        <div class="section_desc">
+          Right
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          t:
+        </div>
+        <div class="section_desc">
+          Top
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          Bottom
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 43</div>
+  
+</div>  
+<a name="POSTION_LOOKUP" />
+<div class="content_box">
+  <h5>
+    POSTION_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          a:
+        </div>
+        <div class="section_desc">
+          absolute
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          r:
+        </div>
+        <div class="section_desc">
+          relative
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          s:
+        </div>
+        <div class="section_desc">
+          static
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          f:
+        </div>
+        <div class="section_desc">
+          fixed
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 239</div>
+  
+</div>  
+<a name="RESIZE_LOOKUP" />
+<div class="content_box">
+  <h5>
+    RESIZE_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          v:
+        </div>
+        <div class="section_desc">
+          vertical
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          h:
+        </div>
+        <div class="section_desc">
+          horizontal
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          both
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          none
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 1151</div>
+  
+</div>  
+<a name="TEXTALIGN_LOOKUP" />
+<div class="content_box">
+  <h5>
+    TEXTALIGN_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          l:
+        </div>
+        <div class="section_desc">
+          left
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          r:
+        </div>
+        <div class="section_desc">
+          right
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          c:
+        </div>
+        <div class="section_desc">
+          center
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          j:
+        </div>
+        <div class="section_desc">
+          justify
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 180</div>
+  
+</div>  
+<a name="TEXTDECORATION_LOOKUP" />
+<div class="content_box">
+  <h5>
+    TEXTDECORATION_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          none
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          u:
+        </div>
+        <div class="section_desc">
+          underline
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          l:
+        </div>
+        <div class="section_desc">
+          line-through
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 625</div>
+  
+</div>  
+<a name="TEXTOVERFLOW_LOOKUP" />
+<div class="content_box">
+  <h5>
+    TEXTOVERFLOW_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          c:
+        </div>
+        <div class="section_desc">
+          clip
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          e:
+        </div>
+        <div class="section_desc">
+          ellipsis
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 772</div>
+  
+</div>  
+<a name="TEXTTRANSFORM_LOOKUP" />
+<div class="content_box">
+  <h5>
+    TEXTTRANSFORM_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          c:
+        </div>
+        <div class="section_desc">
+          capitalize
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          l:
+        </div>
+        <div class="section_desc">
+          lowercase
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          u:
+        </div>
+        <div class="section_desc">
+          uppercase
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 788</div>
+  
+</div>  
+<a name="TRANSITION_LOOKUP" />
+<div class="content_box">
+  <h5>
+    TRANSITION_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          border-width
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          bgcolor:
+        </div>
+        <div class="section_desc">
+          background-color
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          bgpos:
+        </div>
+        <div class="section_desc">
+          background-position
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          bottom:
+        </div>
+        <div class="section_desc">
+          bottom
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          brdc:
+        </div>
+        <div class="section_desc">
+          border-color
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          col:
+        </div>
+        <div class="section_desc">
+          color
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          f:
+        </div>
+        <div class="section_desc">
+          fill
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fs:
+        </div>
+        <div class="section_desc">
+          font-size
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          fw:
+        </div>
+        <div class="section_desc">
+          font-weight
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          h:
+        </div>
+        <div class="section_desc">
+          height
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          hn:
+        </div>
+        <div class="section_desc">
+          min-height
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          hx:
+        </div>
+        <div class="section_desc">
+          max-height
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          left:
+        </div>
+        <div class="section_desc">
+          left
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          m:
+        </div>
+        <div class="section_desc">
+          margin
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          mb:
+        </div>
+        <div class="section_desc">
+          margin-bottom
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          ml:
+        </div>
+        <div class="section_desc">
+          margin-left
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          mr:
+        </div>
+        <div class="section_desc">
+          margin-right
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          mt:
+        </div>
+        <div class="section_desc">
+          margin-top
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          none:
+        </div>
+        <div class="section_desc">
+          none
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          op:
+        </div>
+        <div class="section_desc">
+          opacity
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          right:
+        </div>
+        <div class="section_desc">
+          right
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          top:
+        </div>
+        <div class="section_desc">
+          top
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          tr:
+        </div>
+        <div class="section_desc">
+          transform
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          v:
+        </div>
+        <div class="section_desc">
+          visibility
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          w:
+        </div>
+        <div class="section_desc">
+          width
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          wn:
+        </div>
+        <div class="section_desc">
+          min-width
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          wx:
+        </div>
+        <div class="section_desc">
+          max-width
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 1236</div>
+  
+</div>  
+<a name="VERTICALALIGN_LOOKUP" />
+<div class="content_box">
+  <h5>
+    VERTICALALIGN_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          baseline
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          s:
+        </div>
+        <div class="section_desc">
+          sub
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          p:
+        </div>
+        <div class="section_desc">
+          super
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          m:
+        </div>
+        <div class="section_desc">
+          middle
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          t:
+        </div>
+        <div class="section_desc">
+          top
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 189</div>
+  
+</div>  
+<a name="VISIBILITY_LOOKUP" />
+<div class="content_box">
+  <h5>
+    VISIBILITY_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          normal
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          h:
+        </div>
+        <div class="section_desc">
+          hidden
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          v:
+        </div>
+        <div class="section_desc">
+          visible
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 1115</div>
+  
+</div>  
+<a name="WHITESPACE_LOOKUP" />
+<div class="content_box">
+  <h5>
+    WHITESPACE_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          p:
+        </div>
+        <div class="section_desc">
+          pre-wrap
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          nowrap
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 732</div>
+  
+</div>  
+<a name="WORDBREAK_LOOKUP" />
+<div class="content_box">
+  <h5>
+    WORDBREAK_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          normal
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          break-all
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          k:
+        </div>
+        <div class="section_desc">
+          keep-all
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          w:
+        </div>
+        <div class="section_desc">
+          break-word
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 699</div>
+  
+</div>  
+<a name="WORDWRAP_LOOKUP" />
+<div class="content_box">
+  <h5>
+    WORDWRAP_LOOKUP
+    <h7></h7>
+  </h5>
+  <div class="content_description">
+    
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    
+      <div class="section_full">
+        <div class="section_title">
+          n:
+        </div>
+        <div class="section_desc">
+          normal
+        </div>
+      </div>
+    
+      <div class="section_full">
+        <div class="section_title">
+          b:
+        </div>
+        <div class="section_desc">
+          break-word
+        </div>
+      </div>
+    
+  </div>
+  
+    <div class="source_line">quarkStyles.js, line: 681</div>
+  
+</div> 
+  </div>
 </body>
-</html>

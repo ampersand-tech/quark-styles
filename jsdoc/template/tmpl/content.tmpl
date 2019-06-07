@@ -1,0 +1,99 @@
+<?js
+    var data = obj || {};
+?>
+<a name="<?js=data.name?>"></a>
+<div class="content_box">
+  <h5>
+    <?js=data.name ?>
+    <h7><?js=data.examples ?></h7>
+  </h5>
+
+  <div class="content_description">
+    <?js=data.description ?>
+  </div>
+  <?js if(data.implements) {
+    ?>
+    <h6>IMPLEMENT</h6>
+    <div class="content_section">
+      <div class="section_full"><?js=data.implements?></div>
+    </div>
+  <?js
+  }?>
+
+  <?js if (data.properties) {
+  ?>
+    <h6>PROPERTIES</h6>
+    <div class="content_section">
+      <?js
+        if (data.properties) {
+          for(var p=0;p<data.properties.length;p++) {
+      ?>
+        <div class="section_full">
+          <div class="section_title">
+            <?js=data.properties[p].name?>:
+          </div>
+          <div class="section_desc">
+            <?js=data.properties[p].description?>
+          </div>
+        </div>
+      <?js
+          }
+      }?>
+    </div>
+  <?js}?>
+  <?js if (data.params) {
+  ?>
+    <h6>ARGUMENTS</h6>
+    <div class="content_section">
+      <?js for(var p=0;p<data.params.length;p++) {
+      ?>
+        <div class="section_full">
+          <div class="section_title">
+            <?js=data.params[p].name?>
+            <?js if(data.params[p].optional) {
+              ?>
+              <div class="section_subtitle optional">
+                optional
+              </div>
+              <?js
+            } else {
+              ?>
+              <div class="section_subtitle">
+                REQUIRED
+              </div>
+              <?js
+            } ?>
+
+          </div>
+          <div class="section_type">
+            <?js
+            if (data.params[p].type) {
+              for (var n=0;n<data.params[p].type.names.length;n++) {
+                var name = data.params[p].type.names[n];
+                if (n > 0) {
+                  ?>, <?js
+                }
+                if (name === 'COLOR_CONSTANT') {
+                  ?><a href="/docs/colors.html">COLOR_CONSTANT</a><?js
+                } else if (name.link === true) {
+                  ?><a href="#<?js=name.name?>"><?js=name.name?></a><?js
+                } else {
+                  ?><?js=name?><?js
+                }
+              }
+            }?>
+
+          </div>
+          <div class="section_desc">
+            <?js=data.params[p].description?>
+          </div>
+        </div>
+      <?js
+      } ?>
+    </div>
+  <?js
+  } ?>
+  <?js if (data.meta) {?>
+    <div class="source_line"><?js= data.meta.filename + ', line: ' + data.meta.lineno ?></div>
+  <?js } ?>
+</div>

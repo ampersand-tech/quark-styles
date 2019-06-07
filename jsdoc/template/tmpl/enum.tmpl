@@ -1,0 +1,29 @@
+<?js
+    var data = obj || { properties: [] };
+?>
+<a name="<?js=data.name?>" />
+<div class="content_box">
+  <h5>
+    <?js=data.name ?>
+    <h7><?js=data.examples ?></h7>
+  </h5>
+  <div class="content_description">
+    <?js=data.description ?>
+  </div>
+  <h6>VALUES</h6>
+    <div class="content_section">
+    <?js for (var i=0;i<data.properties.length;i++) { ?>
+      <div class="section_full">
+        <div class="section_title">
+          <?js=data.properties[i].name?>:
+        </div>
+        <div class="section_desc">
+          <?js=data.properties[i].defaultvalue || data.properties[i].description?>
+        </div>
+      </div>
+    <?js}?>
+  </div>
+  <?js if (data.meta) {?>
+    <div class="source_line"><?js= data.meta.filename + ', line: ' + data.meta.lineno ?></div>
+  <?js } ?>
+</div>
