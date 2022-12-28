@@ -692,7 +692,7 @@ export function resetCache() {
   }
 }
 
-export class SemanticColorRoot<Props = {}> extends React.Component<Props, {}> {
+export class SemanticColorRoot<Props = {}> extends React.Component<Props & { children: React.ReactNode }, {}> {
   componentWillMount() {
     gPageReactRoots.push(this);
   }

@@ -2,13 +2,13 @@
 * Copyright 2015-present Ampersand Technologies, Inc.
 */
 import * as React from 'react';
-export declare type StashOf<T> = {
+export type StashOf<T> = {
     [k: string]: T;
 };
-export declare type Stash = StashOf<any>;
+export type Stash = StashOf<any>;
 declare type Style = StashOf<any>;
-declare type StyleGeneratorWithString = (match: string, style: Style, errs: ErrorWithDetails[]) => void;
-declare type StyleGeneratorWithRegEx = (match: RegExpMatchArray, style: Style, errs: ErrorWithDetails[]) => void;
+type StyleGeneratorWithString = (match: string, style: Style, errs: ErrorWithDetails[]) => void;
+type StyleGeneratorWithRegEx = (match: RegExpMatchArray, style: Style, errs: ErrorWithDetails[]) => void;
 export interface ErrorWithDetails {
     err: string;
     details: any;
@@ -29,10 +29,14 @@ export declare function applyGlobalClassStyles(styles: StashOf<string>, globalCl
 export declare function makeGlobalClass(globalClassName: string, classesString: string): void;
 export declare function convertClasses(type: any, props: any): void;
 export declare function resetCache(): void;
-export declare class SemanticColorRoot<Props = {}> extends React.Component<Props, {}> {
+export declare class SemanticColorRoot<Props = {}> extends React.Component<Props & {
+    children: React.ReactNode;
+}, {}> {
     componentWillMount(): void;
     componentWillUnmount(): void;
-    render(): React.ReactNode;
+    render(): (Props & {
+        children: React.ReactNode;
+    })["children"];
 }
 export declare function startModule(theModule: any): ClassModule;
 declare class ClassModule {

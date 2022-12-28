@@ -5,6 +5,7 @@
 * @allowConsoleFuncs
 */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.registerSafeAreaDependent = exports.initSafeArea = exports.safeAreaSize = void 0;
 function computeSafeAreaSize() {
     /*
      * Apple defines a "safe area" of the screen for the iPhone X.  The area outside the safe area may be partially
