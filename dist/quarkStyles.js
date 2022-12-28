@@ -3,6 +3,7 @@
  * Copyright 2015-present Ampersand Technologies, Inc.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.setColorConstants = exports.scale = exports.translateY = exports.translateX = void 0;
 var DOMClassManager = require("./domClassManager");
 var safeArea_1 = require("./safeArea");
 var color = require("color");
@@ -28,7 +29,7 @@ function calcSafeAreaLengthMAP() {
     };
 }
 calcSafeAreaLengthMAP();
-safeArea_1.registerSafeAreaDependent(calcSafeAreaLengthMAP);
+(0, safeArea_1.registerSafeAreaDependent)(calcSafeAreaLengthMAP);
 function evalPixels(size) {
     if (size in LENGTH_MAP) {
         return LENGTH_MAP[size];
@@ -895,7 +896,7 @@ QAC(/^flxw-([nwr])$/, function (match, style) {
  */
 QAC(/^autogrid-(.+)$/, function (match, style) {
     style.display = 'grid';
-    style.gridTemplateColumns = "repeat(auto-fill,minmax(" + evalPixels(match[1]) + ", 1fr))";
+    style.gridTemplateColumns = "repeat(auto-fill,minmax(".concat(evalPixels(match[1]), ", 1fr))");
 });
 /**
  * Column-count
@@ -1210,7 +1211,7 @@ var CURSOR_LOOKUP = {
     p: 'pointer',
     a: 'auto',
     d: 'default',
-    t: 'text',
+    t: 'text', // text selection cursor
 };
 /**
  * @qs Cursor
@@ -1479,7 +1480,7 @@ QAC(/^distgrad-([vhdc])-(.*)/, function (match, style, errors) {
             return;
         }
         var dist = props[i + 1];
-        colorPairs.push(propColor.rgb().string() + " " + defaultSuffix(dist, 'px'));
+        colorPairs.push("".concat(propColor.rgb().string(), " ").concat(defaultSuffix(dist, 'px')));
     }
     var dest = dir === 'v' ? 'bottom' : 'right';
     switch (dir) {
@@ -1496,7 +1497,7 @@ QAC(/^distgrad-([vhdc])-(.*)/, function (match, style, errors) {
             dest = '45deg';
             break;
     }
-    var img = "linear-gradient( " + dest + "  , " + colorPairs.join(', ') + " )";
+    var img = "linear-gradient( ".concat(dest, "  , ").concat(colorPairs.join(', '), " )");
     style.backgroundImage = img;
     style.backgroundRepeat = 'no-repeat';
 });
