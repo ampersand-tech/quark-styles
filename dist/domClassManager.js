@@ -18,7 +18,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.init = exports.startModule = exports.SemanticColorRoot = exports.resetCache = exports.convertClasses = exports.makeGlobalClass = exports.applyGlobalClassStyles = exports.classesToSimpleStyle = exports.classesToStyle = exports.validateClassesString = exports.combineClasses = void 0;
+exports.q = exports.init = exports.startModule = exports.SemanticColorRoot = exports.resetCache = exports.convertClasses = exports.makeGlobalClass = exports.applyGlobalClassStyles = exports.classesToSimpleStyle = exports.classesToStyle = exports.validateClassesString = exports.combineClasses = void 0;
 var stringify = require("json-stable-stringify");
 var React = require("react");
 var deepForceUpdate = require("react-deep-force-update");
@@ -693,16 +693,15 @@ function processTouchMouseProps(props, isTouch) {
 function init(isTouchDevice, errFunc) {
     gIsTouch = isTouchDevice;
     gErrFunc = errFunc;
-    var originalCreateElement = React.createElement;
-    React.createElement = function (type, props) {
-        var args = [];
-        for (var _i = 2; _i < arguments.length; _i++) {
-            args[_i - 2] = arguments[_i];
-        }
-        props = processTouchMouseProps(props, gIsTouch) || props;
-        convertClasses(type, props);
-        var elem = originalCreateElement.apply(this, [type, props].concat(args)); // tslint:disable-line:no-invalid-this
-        return elem;
-    };
 }
 exports.init = init;
+function q(type, props) {
+    var args = [];
+    for (var _i = 2; _i < arguments.length; _i++) {
+        args[_i - 2] = arguments[_i];
+    }
+    props = processTouchMouseProps(props, gIsTouch) || props;
+    convertClasses(type, props);
+    return React.createElement.apply(React, [type, props].concat(args));
+}
+exports.q = q;

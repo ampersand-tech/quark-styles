@@ -46,4 +46,5 @@ declare class ClassModule {
     dispose: () => void;
 }
 export declare function init(isTouchDevice: boolean, errFunc?: (err: string, details: any) => void): void;
+export declare function q(type: string, props: Stash | undefined | null, ...args: any[]): React.ReactElement;
 export {};
