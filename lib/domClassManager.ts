@@ -810,12 +810,10 @@ function processTouchMouseProps(props: Stash | undefined | null, isTouch: boolea
 export function init(isTouchDevice: boolean, errFunc?: (err: string, details: any) => void) {
   gIsTouch = isTouchDevice;
   gErrFunc = errFunc;
+}
 
-  const originalCreateElement = React.createElement;
-  (React as Stash).createElement = function(type, props, ...args) {
-    props = processTouchMouseProps(props, gIsTouch) || props;
-    convertClasses(type, props);
-    const elem = originalCreateElement.apply(this, [type, props].concat(args)); // tslint:disable-line:no-invalid-this
-    return elem;
-  };
+export function q(type: string, props: Stash | undefined | null, ...args: any[]): React.ReactElement {
+  props = processTouchMouseProps(props, gIsTouch) || props;
+  convertClasses(type, props);
+  return React.createElement.apply(React, [type, props].concat(args));
 }
